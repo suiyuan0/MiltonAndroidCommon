@@ -1,0 +1,21 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+   <item
+        android:id="@+id/usersetting"
+        android:orderInCategory="100"
+        android:showAsAction="ifRoom"
+        android:icon="@drawable/biz_tie_user_avater_default_common"
+        />
+    
+    
+  <item
+        android:id="@+id/shared"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:icon="@drawable/share_ico"
+        android:title="分享"
+        />
+    
+    
+
+</menu>
