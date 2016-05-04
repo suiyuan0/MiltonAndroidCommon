@@ -1,65 +1,64 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-      android:id="@+id/relative1"
+    android:id="@+id/relative1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ccc"
+    android:paddingLeft="40dp"
+    android:paddingTop="30dp">
+
+
+    <TextView
+        android:id="@+id/news"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="40dp"
-        android:paddingTop="30dp"
-    android:background="#ccc">
+        android:drawablePadding="20dp"
+        android:gravity="center_vertical"
+        android:text="团委活动"
+        android:textSize="16sp" />
 
-  
+    <TextView
+        android:id="@+id/read"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/news"
+        android:layout_marginTop="30dp"
+        android:drawablePadding="20dp"
+        android:gravity="center_vertical"
+        android:text="消息订阅"
+        android:textSize="16sp" />
 
-        <TextView
-            android:id="@+id/news"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawablePadding="20dp"
-            android:gravity="center_vertical"
-            android:text="团委活动"
-            android:textSize="16sp" />
+    <TextView
+        android:id="@+id/pic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/read"
+        android:layout_marginTop="30dp"
+        android:drawablePadding="20dp"
+        android:gravity="center_vertical"
+        android:text="校园美图"
+        android:textSize="16sp" />
 
-        <TextView
-            android:id="@+id/read"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/news"
-            android:layout_marginTop="30dp"
-            android:drawablePadding="20dp"
-            android:gravity="center_vertical"
-            android:text="消息订阅"
-            android:textSize="16sp" />
+    <TextView
+        android:id="@+id/vedio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pic"
+        android:layout_marginTop="30dp"
+        android:drawablePadding="20dp"
+        android:gravity="center_vertical"
+        android:text="在线视频"
+        android:textSize="16sp" />
 
-        <TextView
-            android:id="@+id/pic"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/read"
-            android:layout_marginTop="30dp"
-            android:drawablePadding="20dp"
-            android:gravity="center_vertical"
-            android:text="校园美图"
-            android:textSize="16sp" />
-
-        <TextView
-            android:id="@+id/vedio"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/pic"
-            android:layout_marginTop="30dp"
-            android:drawablePadding="20dp"
-            android:gravity="center_vertical"
-            android:text="在线视频"
-            android:textSize="16sp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/vedio"
-            android:layout_marginBottom="60dp"
-            android:layout_marginTop="40dp"
-            android:drawablePadding="20dp"
-            android:gravity="center_vertical"
-            android:text="跳蚤市场"
-            android:textSize="16sp" />
-    </RelativeLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/vedio"
+        android:layout_marginBottom="60dp"
+        android:layout_marginTop="40dp"
+        android:drawablePadding="20dp"
+        android:gravity="center_vertical"
+        android:text="跳蚤市场"
+        android:textSize="16sp" />
+</RelativeLayout>
 

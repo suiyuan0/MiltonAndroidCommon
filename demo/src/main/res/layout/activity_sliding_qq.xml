@@ -1,0 +1,41 @@
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/id_drawerLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/layout_tool_bar" />
+
+        <CheckBox
+            android:id="@+id/cb_scale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="scale"
+            android:textColor="@color/black" />
+    </LinearLayout>
+    <!--android:background="@drawable/sliding_qq_frame_background"-->
+    <!--android:background="@drawable/sliding_qq_main"-->
+    <!-- android:background="@drawable/youce" -->
+    <fragment
+        android:id="@+id/id_left_menu"
+        android:name="com.milton.common.demo.activity.sliding.SlidingQQMenuLeftFragment"
+        android:layout_width="200dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:tag="START" />
+
+    <fragment
+        android:id="@+id/id_right_menu"
+        android:name="com.milton.common.demo.activity.sliding.SlidingQQMenuRightFragment"
+        android:layout_width="100dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:tag="END" />
+
+</android.support.v4.widget.DrawerLayout>

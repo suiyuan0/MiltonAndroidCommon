@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="48dp"
+    android:background="#e36755">
+
+    <Button
+        android:id="@+id/btn_title_left"
+        android:layout_width="40dp"
+        android:layout_height="45dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="35dp"
+
+        android:background="@drawable/com_btn" />
+
+    <TextView
+        android:id="@+id/tv_top_title"
+        android:layout_width="127dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center_horizontal"
+        android:lines="1"
+        android:text="Toptitle"
+        android:textColor="#ffffffff"
+        android:textSize="19sp" />
+
+    <Button
+        android:id="@+id/btn_title_right"
+        android:layout_width="40dp"
+
+        android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/biz_tie_user_avater_default_common" />
+
+
+</RelativeLayout>

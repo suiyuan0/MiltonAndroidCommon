@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#666" >
+    android:background="#666">
 
     <LinearLayout
         android:id="@+id/logout_layout"
@@ -11,7 +11,7 @@
         android:layout_marginTop="20dp"
         android:layout_weight="0"
         android:gravity="center_horizontal"
-        android:orientation="vertical" >
+        android:orientation="vertical">
 
         <LinearLayout
             android:id="@+id/unlog_info"
@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:layout_marginTop="34dp"
-            android:orientation="horizontal" >
+            android:orientation="horizontal">
 
             <ImageView
                 android:id="@+id/mobie_btn"
@@ -58,7 +58,7 @@
         android:layout_height="match_parent"
         android:layout_below="@id/logout_layout"
         android:layout_marginTop="20dp"
-        android:orientation="vertical" >
+        android:orientation="vertical">
 
         <RelativeLayout
             android:id="@+id/item_1"
@@ -66,12 +66,12 @@
             android:layout_height="40dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dp"
-            android:gravity="center" >
+            android:gravity="center">
 
             <FrameLayout
                 android:id="@+id/view_msg_layout"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content">
 
                 <ImageView
                     android:id="@+id/img_1"
@@ -96,7 +96,7 @@
             android:id="@+id/item_0"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:gravity="center" >
+            android:gravity="center">
 
             <ImageView
                 android:id="@+id/img_0"
@@ -137,7 +137,8 @@
     			android:textColor="#ffd4d4d4"
     			android:textSize="16sp"
     			android:text="信息平台"/>
-        </RelativeLayout>
+        </RelativeLayout>
+
         -->
 
         <RelativeLayout
@@ -145,7 +146,7 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginTop="14dp"
-            android:gravity="center" >
+            android:gravity="center">
 
             <ImageView
                 android:id="@+id/img_3"
@@ -169,7 +170,7 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginTop="14dp"
-            android:gravity="center" >
+            android:gravity="center">
 
             <ImageView
                 android:id="@+id/img_4"
@@ -193,7 +194,7 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginTop="14dp"
-            android:gravity="center" >
+            android:gravity="center">
 
             <ImageView
                 android:id="@+id/img_5"
@@ -217,8 +218,7 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginTop="14dp"
-            android:gravity="center" >
-        </RelativeLayout>
+            android:gravity="center"></RelativeLayout>
     </LinearLayout>
 
 </RelativeLayout>
