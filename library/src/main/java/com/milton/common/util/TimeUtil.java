@@ -290,7 +290,7 @@ public class TimeUtil
 
     // ===========================================================================================================
     /** * 将长时间格式时间转换为字符串 yyyy-MM-dd HH:mm:ss * * @param dateDate * @return */
-    public static String dateToStrLong(java.util.Date dateDate) {
+    public static String dateToStrLong(Date dateDate) {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         return formatter.format(dateDate);
     }
@@ -301,7 +301,7 @@ public class TimeUtil
      * @param dateDate
      * @return
      */
-    public static String dateToStr(java.util.Date dateDate) {
+    public static String dateToStr(Date dateDate) {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         return formatter.format(dateDate);
     }
@@ -623,8 +623,8 @@ public class TimeUtil
         SimpleDateFormat myFormatter = new SimpleDateFormat("yyyy-MM-dd");
         long day = 0;
         try {
-            java.util.Date date = myFormatter.parse(sj1);
-            java.util.Date mydate = myFormatter.parse(sj2);
+            Date date = myFormatter.parse(sj1);
+            Date mydate = myFormatter.parse(sj2);
             day = (date.getTime() - mydate.getTime()) / (24 * 60 * 60 * 1000);
         } catch (Exception e) {
             return "";
@@ -646,8 +646,8 @@ public class TimeUtil
             return 0;
         // 转换为标准时间
         SimpleDateFormat myFormatter = new SimpleDateFormat("yyyy-MM-dd");
-        java.util.Date date = null;
-        java.util.Date mydate = null;
+        Date date = null;
+        Date mydate = null;
         try {
             date = myFormatter.parse(date1);
             mydate = myFormatter.parse(date2);

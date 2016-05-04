@@ -1,7 +1,10 @@
 
 package com.milton.common.util;
 
+import android.app.Activity;
+import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.wifi.WifiInfo;
@@ -15,10 +18,50 @@ import java.util.Enumeration;
 import java.util.StringTokenizer;
 
 public class NetUtil {
+    /**
+     * 判断网络是否连接
+     *
+     * @param context
+     * @return
+     */
+    public static boolean isConnected(Context context) {
+        ConnectivityManager connectivity = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (null != connectivity) {
+            NetworkInfo info = connectivity.getActiveNetworkInfo();
+            if (null != info && info.isConnected()) {
+                if (info.getState() == NetworkInfo.State.CONNECTED) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 
     /**
-     * 3G网络IP <uses-permission
-     * android:name="android.permission.INTERNET"></uses-permission>
+     * 判断是否是wifi连接
+     */
+    public static boolean isWifi(Context context) {
+        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (cm == null) {
+            return false;
+        }
+        return cm.getActiveNetworkInfo().getType() == ConnectivityManager.TYPE_WIFI;
+
+    }
+
+    /**
+     * 打开网络设置界面
+     */
+    public static void openSetting(Activity activity) {
+        Intent intent = new Intent("/");
+        ComponentName cm = new ComponentName("com.android.settings", "com.android.settings.WirelessSettings");
+        intent.setComponent(cm);
+        intent.setAction("android.intent.action.VIEW");
+        activity.startActivityForResult(intent, 0);
+    }
+
+    /**
+     * 3G网络IP <uses-permission android:name="android.permission.INTERNET"></uses-permission>
      * 
      * @return
      */
@@ -45,8 +88,7 @@ public class NetUtil {
     }
 
     /**
-     * 获取本机WIFI <uses-permission
-     * android:name="android.permission.ACCESS_WIFI_STATE"></uses-permission>
+     * 获取本机WIFI <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"></uses-permission>
      * 
      * @return
      */
@@ -112,8 +154,7 @@ public class NetUtil {
     }
 
     /**
-     * 获取网络类型名称 <uses-permission
-     * android:name="android.permission.ACCESS_NETWORK_STATE" />
+     * 获取网络类型名称 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
      * 
      * @param context
      * @return

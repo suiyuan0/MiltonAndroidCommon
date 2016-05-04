@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="me.corer.demo.labelview.MainActivity">
+
+    <com.milton.common.widget.LabelView
+        android:layout_width="100dp"
+        android:layout_height="200dp"
+        app:backgroundColor="#ff483a"
+        app:labelTopPadding="8dp"
+        app:num="01"
+        app:numSize="20sp"
+        app:numStyle="bold"
+        app:text="Top"
+        app:textSize="10sp" />
+
+    <com.milton.common.widget.LabelView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        app:backgroundColor="@color/colorPrimary"
+        app:num="02"
+        app:numSize="14sp"
+        app:text="Top"
+        app:textSize="9sp" />
+
+    <com.milton.common.widget.LabelView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        app:backgroundColor="@color/colorAccent"
+        app:direction="leftTop"
+        app:labelCenterPadding="15dp"
+        app:labelTopPadding="15dp"
+        app:num="9:00"
+        app:numSize="14sp"
+        app:numStyle="normal"
+        app:text="早场"
+        app:textSize="9sp" />
+
+    <com.milton.common.widget.LabelView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        app:backgroundColor="@color/colorPrimaryDark"
+        app:direction="leftTop"
+        app:labelBottomPadding="10dp"
+        app:labelCenterPadding="5dp"
+        app:labelTopPadding="15dp"
+        app:num="20:00"
+        app:numSize="14sp"
+        app:numStyle="italic"
+        app:text="晚场"
+        app:textSize="9sp" />
+
+</LinearLayout>

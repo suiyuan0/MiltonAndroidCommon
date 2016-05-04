@@ -4,8 +4,8 @@ package com.milton.common.demo.activity.util;
 import android.view.View;
 import android.widget.AdapterView;
 
-import com.milton.common.util.CustomToast;
 import com.milton.common.util.NetUtil;
+import com.milton.common.util.ToastUtil;
 
 public class UtilsNetActivity extends UtilsBaseActivity {
 
@@ -25,22 +25,22 @@ public class UtilsNetActivity extends UtilsBaseActivity {
     public void onItemClick(AdapterView<?> adapterview, View view, int position, long l) {
         switch (position) {
             case 0:
-                CustomToast.show(this, "3G ip is  " + NetUtil.getIpAddress());
+                ToastUtil.showShort(this, "3G ip is  " + NetUtil.getIpAddress());
                 break;
             case 1:
-                CustomToast.show(this, "WIFI ip is  " + NetUtil.getLocalIpAddress(this));
+                ToastUtil.showShort(this, "WIFI ip is  " + NetUtil.getLocalIpAddress(this));
                 break;
             case 2:
-                CustomToast.show(this, "Local mac address is  " + NetUtil.getLocalMac(this));
+                ToastUtil.showShort(this, "Local mac address is  " + NetUtil.getLocalMac(this));
                 break;
             case 3:
-                CustomToast.show(this, "ip:192.168.68.128 =>hex :" + NetUtil.ip2Hex("192.168.68.128"));
+                ToastUtil.showShort(this, "ip:192.168.68.128 =>hex :" + NetUtil.ip2Hex("192.168.68.128"));
                 break;
             case 4:
-                CustomToast.show(this, "hex:c0a84480 =>ip :" + NetUtil.getLocalIpAddress(this));
+                ToastUtil.showShort(this, "hex:c0a84480 =>ip :" + NetUtil.getLocalIpAddress(this));
                 break;
             case 5:
-                CustomToast.show(this, "NetworkType is  " + NetUtil.getNetworkTypeName(this));
+                ToastUtil.showShort(this, "NetworkType is  " + NetUtil.getNetworkTypeName(this));
                 break;
             case 6:
 

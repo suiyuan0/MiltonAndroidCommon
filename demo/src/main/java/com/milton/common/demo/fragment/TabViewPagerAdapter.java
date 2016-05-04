@@ -9,7 +9,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 public class TabViewPagerAdapter extends FragmentPagerAdapter {
 
     private String mTabTitle[] = new String[]{
-            "Sliding", "Dialog", "Activity", "ImageLoader", "Socket", "Drawable", "View", "Animation", "Util", "Preference", "Other"
+            "Sliding", "Dialog", "Activity", "ImageLoader", "Socket", "Drawable", "View", "Animation", "Util", "Preference", "Html5", "MultiMedia", "Notification", "Widget", "Other"
     };
 //    private Context mContext;
 
@@ -46,6 +46,14 @@ public class TabViewPagerAdapter extends FragmentPagerAdapter {
             return new Fragment2ImageLoader();
         } else if ("Socket".equalsIgnoreCase(mTabTitle[position])) {
             return new Fragment2Socket();
+        } else if ("Widget".equalsIgnoreCase(mTabTitle[position])) {
+            return new Fragment2Widget();
+        } else if ("Notification".equalsIgnoreCase(mTabTitle[position])) {
+            return new Fragment2Notification();
+        } else if ("MultiMedia".equalsIgnoreCase(mTabTitle[position])) {
+            return new Fragment2MultiMedia();
+        } else if ("Html5".equalsIgnoreCase(mTabTitle[position])) {
+            return new Fragment2Html5();
         } else {
             return BaseFragment.newInstance(position);
         }

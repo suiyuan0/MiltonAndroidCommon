@@ -2,13 +2,21 @@
 
     <!--
         Base application theme, dependent on API level. This theme is replaced
-        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+
+
+
+
     -->
     <style name="AppBaseTheme" parent="android:Theme.Light">
         <!--
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
+            backward-compatibility can go here.
+
+
+
+
         -->
     </style>
 
@@ -25,7 +33,11 @@
     v7样式 
     <style name="Theme.MyTheme" parent="Theme.AppCompat.Light">
         <item name="android:actionBarStyle">@style/actionbar_style2</item>
-    </style>
+    </style>
+
+
+
+
     -->
     <style name="actionbar_style" parent="@android:style/Widget.Holo.Light.ActionBar">
         <item name="android:background">#218FCC</item>
@@ -37,6 +49,41 @@
     <style name="item_section_text">
         <item name="android:textSize">12.0sp</item>
         <item name="android:textColor">@color/default_text</item>
+    </style>
+
+    <style name="Theme.CameraBase" parent="@android:style/Theme.Material.Light" />
+
+    <style name="Theme.Camera" parent="Theme.CameraBase">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowTitleSize">0dp</item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="android:windowBackground">@android:color/black</item>
+        <item name="android:colorBackground">@android:color/black</item>
+        <item name="android:colorBackgroundCacheHint">@android:color/black</item>
+        <item name="android:actionBarStyle">@style/Holo.ActionBar</item>
+    </style>
+
+    <style name="Holo.ActionBar" parent="@android:style/Widget.Holo.ActionBar">
+        <item name="android:displayOptions">useLogo|showHome|homeAsUp</item>
+        <!-- <item name="android:background">@drawable/actionbar_translucent</item> -->
+        <item name="android:backgroundStacked">@null</item>
+    </style>
+
+    <style name="NotificationContent">
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+
+    <style name="NotificationTitle">
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="btn_custom_style">
+        <item name="android:layout_width">48dip</item>
+        <item name="android:layout_height">48dip</item>
+        <item name="android:layout_gravity">center|right</item>
+        <item name="android:background">?android:listChoiceBackgroundIndicator</item>
     </style>
 
 </resources>

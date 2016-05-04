@@ -21,8 +21,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.milton.common.demo.R;
-import com.milton.common.util.ResourceUtil;
 import com.milton.common.demo.adapter.DragAdapter;
+import com.milton.common.util.ResourceUtil;
 
 public class DragGrid extends GridView {
     /** 点击时候的X位置 */
@@ -100,7 +100,7 @@ public class DragGrid extends GridView {
     public void init(Context context) {
         mVibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
         // 将布局文件中设置的间距dip转为px
-        mHorizontalSpacing = ResourceUtil.dip2px(context, mHorizontalSpacing);
+        mHorizontalSpacing = ResourceUtil.dp2px(context, mHorizontalSpacing);
     }
 
     @Override

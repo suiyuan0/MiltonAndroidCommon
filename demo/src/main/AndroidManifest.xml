@@ -8,7 +8,9 @@
     <!-- 震动权限 -->
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
+    <uses-feature android:name="android.hardware.camera" />
     <application
         android:name="com.milton.common.demo.AppApplication"
         android:allowBackup="true"
@@ -44,13 +46,49 @@
         <activity android:name="com.milton.common.demo.activity.activities.RegisterConfirmActivity"></activity>
         <activity android:name="com.milton.common.demo.activity.activities.CitySelectActivity0"></activity>
         <activity android:name="com.milton.common.demo.activity.activities.CitySelectActivity"></activity>
+        <activity
+            android:name="com.milton.common.demo.activity.activities.StatusBarActivity"
+            android:theme="@style/Theme.Camera"></activity>
 
         <service
             android:name="com.baidu.location.f"
             android:enabled="true"
             android:process=":remote"></service>
         <!-- Activities  END -->
+        <!-- Widget BEGIN -->
+        <activity android:name="com.milton.common.demo.activity.widget.LabelViewActivity"></activity>
+        <activity android:name="com.milton.common.demo.activity.widget.SlideSwitchActivity"></activity>
+        <!-- Widget END -->
 
+
+        <!-- Notification BEGIN -->
+        <activity android:name="com.milton.common.demo.activity.notification.CustomActivity"></activity>
+        <activity android:name="com.milton.common.demo.activity.notification.ProgressAcitivty"></activity>
+        <activity
+            android:name="com.milton.common.demo.activity.notification.NotificationActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.UtilsActivity" />
+            </intent-filter>
+        </activity>
+        <!-- Notification END -->
+
+
+        <!-- MultiMedia BEGIN -->
+        <activity
+            android:name="com.milton.common.demo.activity.multimedia.CameraActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme"></activity>
+        <!-- MultiMedia END -->
+
+
+        <!-- Html5 BEGIN -->
+        <activity
+            android:name="com.milton.common.demo.activity.html5.Html5Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme"></activity>
+        <!-- Html5 END -->
 
         <!-- ImageLoader BEGIN -->
         <activity android:name="com.milton.common.demo.activity.imageloader.FrescoActivity"></activity>

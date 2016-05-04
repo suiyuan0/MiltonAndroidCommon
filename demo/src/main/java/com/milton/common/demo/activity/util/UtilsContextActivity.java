@@ -7,14 +7,14 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 
-import com.milton.common.util.ContextUtil;
-import com.milton.common.util.CustomToast;
 import com.milton.common.demo.util.Constants;
+import com.milton.common.util.ContextUtil;
+import com.milton.common.util.ToastUtil;
 
 import java.util.List;
 
 public class UtilsContextActivity extends UtilsBaseActivity {
-    private static final String TAG = "milton";
+    private static final String TAG = "alinmi";
 
     @Override
     public String[] getItemNames() {
@@ -41,7 +41,6 @@ public class UtilsContextActivity extends UtilsBaseActivity {
                 ContextUtil.startApkActivity(this, "com.topnews");
                 break;
             case 1:
-                CustomToast.showLogTip(this);
                 List<String> list = ContextUtil.getActivities(this, Constants.UTIL_ACTION);
                 if (list != null && list.size() > 0) {
                     for (int i = 0, size = list.size(); i < size; i++)
@@ -50,10 +49,9 @@ public class UtilsContextActivity extends UtilsBaseActivity {
                 break;
             case 2:
                 String action = "action.a";
-                CustomToast.show(this, action + "  isIntentAvailable = " + ContextUtil.isIntentAvailable(this, action));
+                ToastUtil.showShort(this, action + "  isIntentAvailable = " + ContextUtil.isIntentAvailable(this, action));
                 break;
             case 3:
-                CustomToast.showLogTip(this);
                 ContextUtil.getAllPackageInfo(this);
                 break;
             case 4:
@@ -61,25 +59,24 @@ public class UtilsContextActivity extends UtilsBaseActivity {
                 break;
             case 5:
                 ContextUtil.collapseStatusBar(this);
-                CustomToast.show(this, "collapseStatusBar");
+                ToastUtil.showShort(this, "collapseStatusBar");
                 break;
             case 6:
                 ContextUtil.expandStatusBar(this);
-                CustomToast.show(this, "expandStatusBar");
+                ToastUtil.showShort(this, "expandStatusBar");
                 break;
             case 7:
-                CustomToast.show(this, "StatusBarHeight is " + ContextUtil.getStatusBarHeight(this));
+                ToastUtil.showShort(this, "StatusBarHeight is " + ContextUtil.getStatusBarHeight(this));
                 break;
             case 8:
                 ContextUtil.setFullScreen(this);
-                CustomToast.show(this, "setFullScreen");
+                ToastUtil.showShort(this, "setFullScreen");
                 break;
             case 9:
                 ContextUtil.setNotFullScreen(this);
-                CustomToast.show(this, "setNotFullScreen");
+                ToastUtil.showShort(this, "setNotFullScreen");
                 break;
             case 10:
-                CustomToast.showLogTip(this);
                 List<ResolveInfo> list2 = ContextUtil.getAllInstalledLauncherActivities(this);
                 if (list2 != null && list2.size() > 0) {
                     for (int i = 0, size = list2.size(); i < size; i++) {

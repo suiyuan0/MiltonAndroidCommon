@@ -20,8 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * TODO http://www.cnblogs.com/over140/archive/2013/03/05/2706068.html
- * sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, uri));
+ * TODO http://www.cnblogs.com/over140/archive/2013/03/05/2706068.html sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, uri));
  * 
  * @author v-ming.lin
  */
@@ -198,9 +197,7 @@ public class ContextUtil {
     }
 
     /**
-     * 获取设备上已安装并且可启动的应用列表
-     * 使用getInstalledApplications会返回很多无法启动甚至没有图标的系统应用。ResolveInfo
-     * .activityInfo.applicationInfo也能取到你想要的数据。
+     * 获取设备上已安装并且可启动的应用列表 使用getInstalledApplications会返回很多无法启动甚至没有图标的系统应用。ResolveInfo .activityInfo.applicationInfo也能取到你想要的数据。
      * 
      * @param context
      * @return
@@ -211,5 +208,46 @@ public class ContextUtil {
 
         List<ResolveInfo> activities = context.getPackageManager().queryIntentActivities(intent, 0);
         return activities;
+    }
+
+    /**
+     * 获取应用程序名称
+     */
+    public static String getAppName(Context context) {
+        try {
+            PackageManager packageManager = context.getPackageManager();
+            PackageInfo packageInfo = packageManager.getPackageInfo(context.getPackageName(), 0);
+            int labelRes = packageInfo.applicationInfo.labelRes;
+            return context.getResources().getString(labelRes);
+        } catch (NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
+     * [获取应用程序版本名称信息]
+     *
+     * @param context
+     * @return 当前应用的版本名称
+     */
+    public static String getVersionName(Context context) {
+        try {
+            PackageManager packageManager = context.getPackageManager();
+            PackageInfo packageInfo = packageManager.getPackageInfo(context.getPackageName(), 0);
+            return packageInfo.versionName;
+
+        } catch (NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
+     * 获取当前系统SDK版本号
+     */
+    public static int getSystemVersion() {
+        /* 获取当前系统的android版本号 */
+        return Build.VERSION.SDK_INT;
     }
 }

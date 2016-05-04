@@ -5,9 +5,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Toast;
 
-import com.milton.common.util.CustomToast;
 import com.milton.common.util.ResourceUtil;
-import com.milton.common.util.ScreenUtil;
+import com.milton.common.util.ToastUtil;
 
 public class UtilsResourceActivity extends UtilsBaseActivity {
 
@@ -29,10 +28,10 @@ public class UtilsResourceActivity extends UtilsBaseActivity {
                 Toast.makeText(this, text + "'s size is " + size + ", " + text + "'s width is " + ResourceUtil.getTextWidth(text, size), Toast.LENGTH_SHORT).show();
                 break;
             case 1:
-                CustomToast.show(this, "10dp is " + ResourceUtil.dip2px(this, 10) + "pixel in this phone");
+                ToastUtil.showShort(this, "10dp is " + ResourceUtil.dp2px(this, 10) + "pixel in this phone");
                 break;
             case 2:
-                CustomToast.show(this, ResourceUtil.getTextFromAssets(this, "test.txt"));
+                ToastUtil.showShort(this, ResourceUtil.getTextFromAssets(this, "test.txt"));
                 break;
             case 3:
 

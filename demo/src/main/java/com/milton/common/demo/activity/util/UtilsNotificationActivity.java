@@ -4,9 +4,8 @@ package com.milton.common.demo.activity.util;
 import android.view.View;
 import android.widget.AdapterView;
 
-import com.milton.common.util.CustomToast;
-import com.milton.common.util.NetUtil;
 import com.milton.common.util.NotificationUtil;
+import com.milton.common.demo.activity.notification.NotificationActivity;
 
 public class UtilsNotificationActivity extends UtilsBaseActivity {
 

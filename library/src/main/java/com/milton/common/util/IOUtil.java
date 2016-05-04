@@ -49,12 +49,12 @@ public class IOUtil {
 
                 // get the folder name of the widget
                 szName = szName.substring(0, szName.length() - 1);
-                java.io.File folder = new java.io.File(outPathString + java.io.File.separator + szName);
+                File folder = new File(outPathString + File.separator + szName);
                 folder.mkdirs();
 
             } else {
 
-                java.io.File file = new java.io.File(outPathString + java.io.File.separator + szName);
+                File file = new File(outPathString + File.separator + szName);
                 file.createNewFile();
                 // get the output stream of the file
                 java.io.FileOutputStream out = new java.io.FileOutputStream(file);
