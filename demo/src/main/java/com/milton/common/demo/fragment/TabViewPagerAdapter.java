@@ -29,7 +29,7 @@ public class TabViewPagerAdapter extends FragmentPagerAdapter {
         } else if ("Animation".equalsIgnoreCase(mTabTitle[position])) {
             return BaseFragment.newInstance(position);
         } else if ("Dialog".equalsIgnoreCase(mTabTitle[position])) {
-            return BaseFragment.newInstance(position);
+            return new Fragment2Dialog();
         } else if ("Drawable".equalsIgnoreCase(mTabTitle[position])) {
             return BaseFragment.newInstance(position);
         } else if ("Sliding".equalsIgnoreCase(mTabTitle[position])) {
