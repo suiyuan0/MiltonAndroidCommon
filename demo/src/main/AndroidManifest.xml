@@ -38,6 +38,9 @@
         <activity android:name="com.milton.common.demo.activity.sliding.SlidingMenuActivity"></activity>
         <activity android:name="com.milton.common.demo.activity.sliding.SlidingQQActivity"></activity>
         <!-- Sliding  END -->
+        <!-- ListView  BEGIN -->
+        <activity android:name="com.milton.common.demo.activity.listview.ExpandableListItemActivity"></activity>
+        <!-- ListView  END -->
         <!-- Activities  BEGIN -->
         <activity android:name="com.milton.common.demo.activity.activities.CityListActivity"></activity>
         <activity android:name="com.milton.common.demo.activity.activities.ChannelActivity"></activity>

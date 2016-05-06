@@ -1,21 +1,20 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-   <item
+    <item
         android:id="@+id/usersetting"
-        android:orderInCategory="100"
-        android:showAsAction="ifRoom"
         android:icon="@drawable/biz_tie_user_avater_default_common"
-        />
-    
-    
-  <item
-        android:id="@+id/shared"
         android:orderInCategory="100"
-        android:showAsAction="never"
+        app:showAsAction="ifRoom"
+        android:title="test" />
+
+
+    <item
+        android:id="@+id/shared"
         android:icon="@drawable/share_ico"
-        android:title="分享"
-        />
-    
-    
+        android:orderInCategory="100"
+        app:showAsAction="never"
+        android:title="分享" />
+
 
 </menu>

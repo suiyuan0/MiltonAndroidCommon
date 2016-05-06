@@ -100,18 +100,18 @@ public class DrawerLayoutActivity extends BaseActivity {
     }
 
     private void toggleLeftSliding() {
-        if (drawerLayout.isDrawerOpen(Gravity.START)) {
-            drawerLayout.closeDrawer(Gravity.START);
+        if (drawerLayout.isDrawerOpen(Gravity.LEFT)) {
+            drawerLayout.closeDrawer(Gravity.LEFT);
         } else {
-            drawerLayout.openDrawer(Gravity.START);
+            drawerLayout.openDrawer(Gravity.LEFT);
         }
     }
 
     private void toggleRightSliding() {
-        if (drawerLayout.isDrawerOpen(Gravity.END)) {
-            drawerLayout.closeDrawer(Gravity.END);
+        if (drawerLayout.isDrawerOpen(Gravity.RIGHT)) {
+            drawerLayout.closeDrawer(Gravity.RIGHT);
         } else {
-            drawerLayout.openDrawer(Gravity.END);
+            drawerLayout.openDrawer(Gravity.RIGHT);
         }
     }
 
