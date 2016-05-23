@@ -11,9 +11,10 @@ public class UtilsScreenActivity extends UtilsBaseActivity {
 
     @Override
     public String[] getItemNames() {
-        return new String[] {
+        return new String[]{
                 "getScreenPhysicalSize",
                 "isTablet",
+                "showScreenSize",
         };
     }
 
@@ -27,7 +28,7 @@ public class UtilsScreenActivity extends UtilsBaseActivity {
                 Toast.makeText(this, "isTablet = " + ScreenUtil.isTablet(this), Toast.LENGTH_SHORT).show();
                 break;
             case 2:
-
+                ScreenUtil.showScreenSize(this);
                 break;
             case 3:
 
