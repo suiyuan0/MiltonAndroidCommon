@@ -10,6 +10,8 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.WindowManager;
 
+import com.milton.common.lib.R;
+
 public class ScreenUtil {
     public static double getScreenPhysicalSize(Activity ctx) {
         DisplayMetrics dm = new DisplayMetrics();
@@ -24,7 +26,7 @@ public class ScreenUtil {
 
     public static void showScreenSize(Context ctx) {
         DisplayMetrics dm = ctx.getResources().getDisplayMetrics();
-        ToastUtil.showShort(ctx, "size : " + dm.heightPixels + " * " + dm.widthPixels + ", density : " + dm.density, false);
+        ToastUtil.showShort(ctx, "size : " + dm.heightPixels + " * " + dm.widthPixels + ", density : " + dm.density + ", dpi is "+ctx.getString(R.string.screen_resolution), false);
     }
 
     /**
