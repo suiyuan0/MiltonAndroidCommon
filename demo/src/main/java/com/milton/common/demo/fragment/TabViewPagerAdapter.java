@@ -23,11 +23,12 @@ public class TabViewPagerAdapter extends FragmentPagerAdapter {
     private final static String NOTIFICATION = "Notification";
     private final static String WIDGET = "Widget";
     private final static String OTHER = "Other";
+    private final static String JNI = "Jni";
     //    private String mTabTitle[] = new String[]{
 //            "Sliding", "Dialog","ListView", "Activity", "ImageLoader", "Socket", "Drawable", "View", "Animation", "Util", "Preference", "Html5", "MultiMedia", "Notification", "Widget", "Other"
 //    };
     private String mTabTitle[] = new String[]{
-            SLIDING, DIALOG, LISTVIEW, ACTIVITY, IMAGELOADER, SOCKET, DRAWABLE, VIEW, ANIMATION, UTIL, PREFERENCE, HTML5, MUTILMEDIA, NOTIFICATION, WIDGET, OTHER
+            JNI, SLIDING, DIALOG, LISTVIEW, ACTIVITY, IMAGELOADER, SOCKET, DRAWABLE, VIEW, ANIMATION, UTIL, PREFERENCE, HTML5, MUTILMEDIA, NOTIFICATION, WIDGET, OTHER
     };
 //    private Context mContext;
 
@@ -74,6 +75,8 @@ public class TabViewPagerAdapter extends FragmentPagerAdapter {
             return new Fragment2Widget();
         } else if (checkName(OTHER, position)) {
             return new Fragment2Other();
+        } else if (checkName(JNI, position)) {
+            return new Fragment2Jni();
         } else {
             return BaseFragment.newInstance(position);
         }

@@ -2,6 +2,7 @@
 package com.milton.common.demo.fragment;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
@@ -11,6 +12,7 @@ import android.widget.Button;
 import android.widget.LinearLayout.LayoutParams;
 
 import com.milton.common.demo.R;
+import com.milton.common.dialog.LoadingDialog;
 
 
 public class Fragment2Dialog extends Fragment2Base {
@@ -30,6 +32,8 @@ public class Fragment2Dialog extends Fragment2Base {
         return new String[]{
                 "底部",
                 "中间",
+                "等待",
+                "加载框"
 
         };
     }
@@ -44,12 +48,12 @@ public class Fragment2Dialog extends Fragment2Base {
             case 1:
                 showDialog2();
                 break;
-//            case 2:
-//                showCzNotify();
-//                break;
-//            case 3:
-//                showIntentActivityNotify();
-//                break;
+            case 2:
+                showProgressDialog();
+                break;
+            case 3:
+                showLoadingDialog();
+                break;
 //            case 4:
 //                showIntentApkNotify();
 //                break;
@@ -59,6 +63,33 @@ public class Fragment2Dialog extends Fragment2Base {
 
             default:
                 break;
+        }
+    }
+
+    ProgressDialog pd;
+
+    private void showProgressDialog() {
+        if (null == pd) {
+            pd = new ProgressDialog(getActivity());
+        }
+        if (pd.isShowing()) {
+            pd.hide();
+        } else {
+            pd.show();
+        }
+    }
+
+    LoadingDialog loadingDialog;
+
+    private void showLoadingDialog() {
+        if (null == loadingDialog) {
+            loadingDialog = new LoadingDialog(getActivity());
+            loadingDialog.setCanceledOnTouchOutside(false);
+        }
+        if (loadingDialog.isShowing()) {
+            loadingDialog.hide();
+        } else {
+            loadingDialog.show();
         }
     }
 

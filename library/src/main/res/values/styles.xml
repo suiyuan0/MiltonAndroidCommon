@@ -2,13 +2,19 @@
 
     <!--
         Base application theme, dependent on API level. This theme is replaced
-        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+
+
+
     -->
     <style name="AppBaseTheme" parent="android:Theme.Light">
         <!--
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
+            backward-compatibility can go here.
+
+
+
         -->
     </style>
 
@@ -54,7 +60,12 @@
     <!-- 设置Activity透明 -->
     <!--
 说明：AppBaseTheme一般是你application指定的android:theme是啥这里就是啥，否则Activity内部的空间风格可能不一致。
-用途：用于模拟Dialog效果，比如再Service中没法用Dialog，就可以用Activity来模拟
+用途：用于模拟Dialog效果，比如再Service中没法用Dialog，就可以用Activity来模拟
+
+
+
+
+
     -->
     <style name="TransparentActivity" parent="AppBaseTheme">
         <item name="android:windowBackground">@android:color/transparent</item>
@@ -112,5 +123,16 @@
     <style name="title_text_style">
         <item name="android:textSize">20.0sp</item>
         <item name="android:textColor">@color/title_text_color</item>
+    </style>
+    <style name="loadingDialogStyle" parent="android:Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <!-- 对话框是否有遮盖 -->
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:backgroundDimEnabled">true</item>
     </style>
 </resources>

@@ -178,6 +178,9 @@
 
         <activity android:name="com.milton.common.demo.activity.other.SilentInstallFileExplorerActivity" />
         <!-- Other End -->
+        <!-- Jni Begin -->
+        <activity android:name="com.milton.common.demo.activity.jni.HelloJniActivity" />
+        <!-- Jni End -->
     </application>
 
 </manifest>
