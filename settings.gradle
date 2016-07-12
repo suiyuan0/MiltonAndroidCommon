@@ -1,2 +1,2 @@
-include ':app', ':library', ':demo', ':jni'
+include ':app', ':library', ':demo', ':jni', ':ipcjni', ':testipcjni'
 

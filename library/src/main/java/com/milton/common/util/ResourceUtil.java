@@ -13,7 +13,7 @@ import android.text.TextPaint;
 import android.util.TypedValue;
 import android.widget.ImageView;
 
-import org.apache.http.util.EncodingUtils;
+//import org.apache.http.util.EncodingUtils;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -32,16 +32,16 @@ public class ResourceUtil {
      * @param imageView
      * @param bitmap
      */
-    public void setImageBitmap(ImageView imageView, Bitmap bitmap) {
-        // Use TransitionDrawable to fade in.
-        final TransitionDrawable td = new TransitionDrawable(new Drawable[] {
-                new ColorDrawable(android.R.color.transparent), new BitmapDrawable(imageView.getResources(), bitmap)
-        });
-        // noinspection deprecation
-        imageView.setBackgroundDrawable(imageView.getDrawable());
-        imageView.setImageDrawable(td);
-        td.startTransition(200);
-    }
+//    public void setImageBitmap(ImageView imageView, Bitmap bitmap) {
+//        // Use TransitionDrawable to fade in.
+//        final TransitionDrawable td = new TransitionDrawable(new Drawable[] {
+//                new ColorDrawable(android.R.color.transparent), new BitmapDrawable(imageView.getResources(), bitmap)
+//        });
+//        // noinspection deprecation
+//        imageView.setBackgroundDrawable(imageView.getDrawable());
+//        imageView.setImageDrawable(td);
+//        td.startTransition(200);
+//    }
 
     /**
      * dp转px
@@ -87,24 +87,24 @@ public class ResourceUtil {
         return (pxVal / context.getResources().getDisplayMetrics().scaledDensity);
     }
 
-    /** 从assets 文件夹中读取文本数据 */
-    public static String getTextFromAssets(final Context context, String fileName) {
-        String result = "";
-        try {
-            InputStream in = context.getResources().getAssets().open(fileName);
-            // 获取文件的字节数
-            int lenght = in.available();
-            // 创建byte数组
-            byte[] buffer = new byte[lenght];
-            // 将文件中的数据读到byte数组中
-            in.read(buffer);
-            result = EncodingUtils.getString(buffer, "UTF-8");
-            in.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return result;
-    }
+//    /** 从assets 文件夹中读取文本数据 */
+//    public static String getTextFromAssets(final Context context, String fileName) {
+//        String result = "";
+//        try {
+//            InputStream in = context.getResources().getAssets().open(fileName);
+//            // 获取文件的字节数
+//            int lenght = in.available();
+//            // 创建byte数组
+//            byte[] buffer = new byte[lenght];
+//            // 将文件中的数据读到byte数组中
+//            in.read(buffer);
+//            result = EncodingUtils.getString(buffer, "UTF-8");
+//            in.close();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        return result;
+//    }
 
     /** 从assets 文件夹中读取图片 */
     public static Drawable loadImageFromAsserts(final Context ctx, String fileName) {

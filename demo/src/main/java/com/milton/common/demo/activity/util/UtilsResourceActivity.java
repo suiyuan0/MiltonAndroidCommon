@@ -31,7 +31,7 @@ public class UtilsResourceActivity extends UtilsBaseActivity {
                 ToastUtil.showShort(this, "10dp is " + ResourceUtil.dp2px(this, 10) + "pixel in this phone");
                 break;
             case 2:
-                ToastUtil.showShort(this, ResourceUtil.getTextFromAssets(this, "test.txt"));
+//                ToastUtil.showShort(this, ResourceUtil.getTextFromAssets(this, "test.txt"));
                 break;
             case 3:
 

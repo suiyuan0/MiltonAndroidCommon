@@ -1,6 +1,9 @@
 
 package com.milton.common.application;
 
+import android.content.Context;
+import android.os.Environment;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -8,12 +11,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import android.content.Context;
-import android.os.Environment;
-
 /**
  * log日志统计保存
- * 
+ *
  * @author way
  */
 
@@ -30,11 +30,9 @@ public class LogcatHelper {
     public void init(Context context) {
         if (Environment.getExternalStorageState().equals(
                 Environment.MEDIA_MOUNTED)) {// 优先保存到SD卡中
-            PATH_LOGCAT = Environment.getExternalStorageDirectory()
-                    .getAbsolutePath() + File.separator + "miniGPS";
+            PATH_LOGCAT = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "miniGPS";
         } else {// 如果SD卡不存在，就保存到本应用的目录下
-            PATH_LOGCAT = context.getFilesDir().getAbsolutePath()
-                    + File.separator + "miniGPS";
+            PATH_LOGCAT = context.getFilesDir().getAbsolutePath() + File.separator + "miniGPS";
         }
         File file = new File(PATH_LOGCAT);
         if (!file.exists()) {
@@ -78,8 +76,7 @@ public class LogcatHelper {
         public LogDumper(String pid, String dir) {
             mPID = pid;
             try {
-                out = new FileOutputStream(new File(dir, "GPS-"
-                        + MyDate.getFileName() + ".log"));
+                out = new FileOutputStream(new File(dir, "GPS-" + MyDate.getFileName() + ".log"), true);
             } catch (FileNotFoundException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();

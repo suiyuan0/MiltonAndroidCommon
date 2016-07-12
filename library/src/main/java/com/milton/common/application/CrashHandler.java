@@ -1,6 +1,16 @@
 
 package com.milton.common.application;
 
+import android.content.Context;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
+import android.os.Build;
+import android.os.Environment;
+import android.os.Looper;
+import android.util.Log;
+import android.widget.Toast;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -15,43 +25,35 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import android.content.Context;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.PackageManager.NameNotFoundException;
-import android.os.Build;
-import android.os.Environment;
-import android.os.Looper;
-import android.util.Log;
-import android.widget.Toast;
-
 /**
  * UncaughtException处理类,当程序发生Uncaught异常的时候,由该类来接管程序,并记录发送错误报告.
- * 
- * @author way
  */
 public class CrashHandler implements UncaughtExceptionHandler {
     private static final String TAG = "CrashHandler";
-    private Thread.UncaughtExceptionHandler mDefaultHandler;// 系统默认的UncaughtException处理类
+    private UncaughtExceptionHandler mDefaultHandler;// 系统默认的UncaughtException处理类
     private static CrashHandler INSTANCE = new CrashHandler();// CrashHandler实例
     private Context mContext;// 程序的Context对象
     private Map<String, String> info = new HashMap<String, String>();// 用来存储设备信息和异常信息
     private SimpleDateFormat format = new SimpleDateFormat(
             "yyyy-MM-dd-HH-mm-ss");// 用于格式化日期,作为日志文件名的一部分
 
-    /** 保证只有一个CrashHandler实例 */
+    /**
+     * 保证只有一个CrashHandler实例
+     */
     private CrashHandler() {
 
     }
 
-    /** 获取CrashHandler实例 ,单例模式 */
+    /**
+     * 获取CrashHandler实例 ,单例模式
+     */
     public static CrashHandler getInstance() {
         return INSTANCE;
     }
 
     /**
      * 初始化
-     * 
+     *
      * @param context
      */
     public void init(Context context) {
@@ -69,7 +71,7 @@ public class CrashHandler implements UncaughtExceptionHandler {
             mDefaultHandler.uncaughtException(thread, ex);
         } else {
             try {
-                thread.sleep(3000);// 如果处理了，让程序继续运行3秒再退出，保证文件保存并上传到服务器
+                thread.sleep(2000);// 如果处理了，让程序继续运行2秒再退出，保证文件保存并上传到服务器
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -81,7 +83,7 @@ public class CrashHandler implements UncaughtExceptionHandler {
 
     /**
      * 自定义错误处理,收集错误信息 发送错误报告等操作均在此完成.
-     * 
+     *
      * @param ex 异常信息
      * @return true:如果处理了该异常信息;否则返回false.
      */
@@ -90,10 +92,11 @@ public class CrashHandler implements UncaughtExceptionHandler {
         new Thread() {
             public void run() {
                 Looper.prepare();
-                Toast.makeText(mContext, "很抱歉,程序出现异常,即将退出", 0).show();
+                Toast.makeText(mContext, "很抱歉,程序出现异常,即将退出", Toast.LENGTH_LONG).show();
                 Looper.loop();
             }
         }.start();
+
         // 收集设备参数信息
         collectDeviceInfo(mContext);
         // 保存日志文件
@@ -103,10 +106,13 @@ public class CrashHandler implements UncaughtExceptionHandler {
 
     /**
      * 收集设备参数信息
-     * 
+     *
      * @param context
      */
     public void collectDeviceInfo(Context context) {
+        info.put("手机型号", Build.MODEL);
+        info.put("SDK版本", Build.VERSION.SDK);
+        info.put("系统版本", Build.VERSION.RELEASE);
         try {
             PackageManager pm = context.getPackageManager();// 获得包管理器
             PackageInfo pi = pm.getPackageInfo(context.getPackageName(),
@@ -162,16 +168,19 @@ public class CrashHandler implements UncaughtExceptionHandler {
         if (Environment.getExternalStorageState().equals(
                 Environment.MEDIA_MOUNTED)) {
             try {
-                File dir = new File(Environment.getExternalStorageDirectory()
-                        + "\\crash\\");
-                if (!dir.exists()) dir.mkdir();
-                FileOutputStream fos = new FileOutputStream(dir + fileName);
+                File dir = new File(Environment.getExternalStorageDirectory() + "/crash/");
+                if (!dir.exists()) {
+                    dir.mkdir();
+                }
+                FileOutputStream fos = new FileOutputStream(dir + File.separator + fileName);
                 fos.write(sb.toString().getBytes());
                 fos.close();
                 return fileName;
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             } catch (IOException e) {
+                e.printStackTrace();
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }

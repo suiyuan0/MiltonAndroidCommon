@@ -7,7 +7,7 @@ public class BaseApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-//        CrashHandler.getInstance().init(this);
-//        LogcatHelper.getInstance(this).start();
+        CrashHandler.getInstance().init(this);
+        LogcatHelper.getInstance(this).start();
     }
 }
