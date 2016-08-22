@@ -1,22 +1,6 @@
 <resources>
 
-    <!--
-        Base application theme, dependent on API level. This theme is replaced
-        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
-
-
-
-    -->
-    <style name="AppBaseTheme" parent="android:Theme.Light">
-        <!--
-            Theme customizations available in newer API levels can go in
-            res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
-
-
-
-        -->
-    </style>
+    <style name="AppBaseTheme" parent="android:Theme.Light"></style>
 
     <!-- Application theme. -->
     <style name="AppTheme" parent="AppBaseTheme">
@@ -124,6 +108,30 @@
         <item name="android:textSize">20.0sp</item>
         <item name="android:textColor">@color/title_text_color</item>
     </style>
+
+    <style name="divider_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/header_divider_height</item>
+        <item name="android:background">@color/header_divider_color</item>
+    </style>
+
+    <style name="divider_margin_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/header_divider_height</item>
+        <item name="android:background">@drawable/list_divider_margin</item>
+    </style>
+
+    <style name="list_item_text_style">
+        <item name="android:textColor">@color/list_item_text_color</item>
+        <item name="android:textSize">@dimen/list_item_text_size</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:text">@string/app_name</item>
+        <item name="android:typeface">normal</item>
+        <!--<item name="android:textStyle">italic</item>-->
+    </style>
+
     <style name="loadingDialogStyle" parent="android:Theme.Dialog">
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowFrame">@null</item>
@@ -134,5 +142,82 @@
         <!-- 对话框是否有遮盖 -->
         <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
         <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+    <style name="bottomDialogStyle" parent="android:Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!--<item name="android:window"-->
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <!-- 对话框是否有遮盖 -->
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+    <style name="selectWeekDialogStyle" parent="android:Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!--<item name="android:window"-->
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <!-- 对话框是否有遮盖 -->
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+    <style name="AnimBottom" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/push_bottom_in</item>
+        <item name="android:windowExitAnimation">@anim/push_bottom_out</item>
+    </style>
+
+    <style name="AnimSelectWeek" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/push_right_in</item>
+        <item name="android:windowExitAnimation">@anim/push_right_out</item>
+    </style>
+
+    <style name="Box_PinView" parent="@android:style/Widget.EditText">
+        <item name="android:textSize">@dimen/pin_size</item>
+        <item name="android:gravity">center</item>
+        <item name="android:maxLength">1</item>
+        <item name="android:padding">@dimen/edittext_padding</item>
+        <item name="android:inputType">numberPassword</item>
+        <item name="android:background">@drawable/pin_box</item>
+        <item name="android:focusableInTouchMode">true</item>
+        <item name="android:textColor">@color/textbox_pinview</item>
+        <item name="android:imeActionLabel" />
+        <item name="android:layout_width">40dp</item>
+        <item name="android:layout_height">40dp</item>
+    </style>
+
+    <style name="Button_Keyboard" parent="@android:style/Widget.Button">
+        <item name="android:background">@drawable/tab_frame_selector</item>
+        <item name="android:enabled">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <style name="checkbox_circle_check_style">
+        <item name="android:layout_width">20dp</item>
+        <item name="android:layout_height">20dp</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:background">@drawable/checkbox_circle_check</item>
+        <item name="android:button">@null</item>
+
+    </style>
+
+    <style name="CubeBaseTheme">
+        <item name="android:windowAnimationStyle">@style/ActivityAnimation</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowEnableSplitTouch">false</item>
+        <item name="android:splitMotionEvents">false</item>
     </style>
 </resources>

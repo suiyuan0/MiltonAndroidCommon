@@ -1,17 +1,19 @@
 package com.milton.common.adapter;
 
-import java.util.BitSet;
-
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.SparseIntArray;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
 import android.view.animation.Transformation;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
+
+import java.util.BitSet;
 
 /**
  * Wraps a ListAdapter to give it expandable list view functionality. The main
@@ -37,7 +39,7 @@ public class ExpandableListAdapter extends WrapperListAdapterImpl {
      * item
      */
     private int lastOpenPosition = -1;
-
+    private View lastOpenParent;
     /**
      * Default Animation duration Set animation duration with @see
      * setAnimationDuration
@@ -56,6 +58,11 @@ public class ExpandableListAdapter extends WrapperListAdapterImpl {
      * recalculate. The height is calculated just before the view is drawn.
      */
     private final SparseIntArray viewHeights = new SparseIntArray(10);
+
+    private OnItemExpandCollapseListener mItemExpandCollapseListener;
+
+    private int mFirstPositionX;
+    private int mTouchSlop = -1;
 
     public ExpandableListAdapter(ListAdapter adapter,
                                  int toggle_button_id, int click_view_id, int expandable_view_id) {
@@ -79,6 +86,12 @@ public class ExpandableListAdapter extends WrapperListAdapterImpl {
     public View getView(int position, View view, ViewGroup viewGroup) {
         view = wrapped.getView(position, view, viewGroup);
         enableFor(view, position);
+//        Log.e("alinmi", " isItemExpanded  position = " + isItemExpanded(position));
+//        view.setBackgroundColor(isItemExpanded(position) ? Color.parseColor("#CACACA") : Color.parseColor("#FFFFFF"));
+
+        if (null != mItemExpandCollapseListener) {
+            mItemExpandCollapseListener.onItemInitStatus(view, position, isItemExpanded(position) ? ExpandCollapseAnimation.EXPAND : ExpandCollapseAnimation.COLLAPSE);
+        }
         return view;
     }
 
@@ -124,17 +137,21 @@ public class ExpandableListAdapter extends WrapperListAdapterImpl {
     }
 
     public void enableFor(View parent, int position) {
+        if (mTouchSlop == -1) {
+            mTouchSlop = ViewConfiguration.get(parent.getContext()).getScaledTouchSlop();
+        }
+
         View more = parent.findViewById(toggle_button_id);
         View click = parent.findViewById(click_view_id);
 
         View itemToolbar = parent.findViewById(expandable_view_id);
         itemToolbar.measure(parent.getWidth(), parent.getHeight());
 
-        enableFor(more, click, itemToolbar, position);
+        enableFor(more, click, itemToolbar, position, parent);
     }
 
     private void enableFor(final View button, final View click,
-                           final View target, final int position) {
+                           final View target, final int position, final View parent) {
         if (target == lastOpen && position != lastOpenPosition) {
             // lastOpen is recycled, so its reference is false
             lastOpen = null;
@@ -144,6 +161,7 @@ public class ExpandableListAdapter extends WrapperListAdapterImpl {
             // re reference to the last view
             // so when can animate it when collapsed
             lastOpen = target;
+            lastOpenParent = parent;
             lastBtn = button;
         }
         int height = viewHeights.get(position, -1);
@@ -153,63 +171,97 @@ public class ExpandableListAdapter extends WrapperListAdapterImpl {
         } else {
             updateExpandable(target, position);
         }
-
-        click.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(final View view) {
-
-                Animation a = target.getAnimation();
-
-                if (a != null && a.hasStarted() && !a.hasEnded()) {
-
-                    a.setAnimationListener(new Animation.AnimationListener() {
+        if (button != null && button.getVisibility() == View.VISIBLE) {
+            click.setOnTouchListener(
+                    new View.OnTouchListener() {
                         @Override
-                        public void onAnimationStart(Animation animation) {
-                        }
-
-                        @Override
-                        public void onAnimationEnd(Animation animation) {
-                            view.performClick();
-                        }
-
-                        @Override
-                        public void onAnimationRepeat(Animation animation) {
-                        }
-                    });
-
-                } else {
-
-                    target.setAnimation(null);
-
-                    int type = target.getVisibility() == View.VISIBLE ? ExpandCollapseAnimation.COLLAPSE
-                            : ExpandCollapseAnimation.EXPAND;
-
-                    // remember the state
-                    if (type == ExpandCollapseAnimation.EXPAND) {
-                        openItems.set(position, true);
-                    } else {
-                        openItems.set(position, false);
-                    }
-                    // check if we need to collapse a different view
-                    if (type == ExpandCollapseAnimation.EXPAND) {
-                        if (lastOpenPosition != -1
-                                && lastOpenPosition != position) {
-                            if (lastOpen != null) {
-                                animateView(lastOpen, lastBtn,
-                                        ExpandCollapseAnimation.COLLAPSE);
+                        public boolean onTouch(final View view, MotionEvent event) {
+                            switch (event.getAction()) {
+                                case MotionEvent.ACTION_DOWN: {
+                                    mFirstPositionX = (int) event.getRawX();
+                                    break;
+                                }
+                                case MotionEvent.ACTION_UP: {
+                                    if (Math.abs((int) event.getRawX() - mFirstPositionX) < mTouchSlop) {
+                                        click2Expadable(view, button, target, position, parent);
+                                    }
+                                    break;
+                                }
                             }
-                            openItems.set(lastOpenPosition, false);
+                            return true;
                         }
-                        lastOpen = target;
-                        lastBtn = button;
-                        lastOpenPosition = position;
-                    } else if (lastOpenPosition == position) {
-                        lastOpenPosition = -1;
                     }
-                    animateView(target, button, type);
+
+            );
+        }
+
+//        click.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(final View view) {
+//                click2Expadable(view, button, target, position, parent);
+//            }
+//        });
+    }
+
+    private void click2Expadable(final View view, final View button,
+                                 final View target, final int position, final View parent) {
+        Animation a = target.getAnimation();
+        if (a != null && a.hasStarted() && !a.hasEnded()) {
+            a.setAnimationListener(new Animation.AnimationListener() {
+                @Override
+                public void onAnimationStart(Animation animation) {
                 }
+
+                @Override
+                public void onAnimationEnd(Animation animation) {
+                    view.performClick();
+                }
+
+                @Override
+                public void onAnimationRepeat(Animation animation) {
+                }
+            });
+
+        } else {
+            if (null == mItemExpandCollapseListener || !mItemExpandCollapseListener.onItemNeedExpand(parent, position)) {
+                return;
             }
-        });
+            target.setAnimation(null);
+
+            int type = target.getVisibility() == View.VISIBLE ? ExpandCollapseAnimation.COLLAPSE
+                    : ExpandCollapseAnimation.EXPAND;
+
+            // remember the state
+            if (type == ExpandCollapseAnimation.EXPAND) {
+                openItems.set(position, true);
+            } else {
+                openItems.set(position, false);
+            }
+            // check if we need to collapse a different view
+            if (type == ExpandCollapseAnimation.EXPAND) {
+                if (lastOpenPosition != -1
+                        && lastOpenPosition != position) {
+                    if (lastOpen != null) {
+                        animateView(lastOpen, lastBtn,
+                                ExpandCollapseAnimation.COLLAPSE);
+                        if (null != mItemExpandCollapseListener) {
+                            mItemExpandCollapseListener.onItemExpandCollapse(lastOpenParent, lastOpenPosition, ExpandCollapseAnimation.COLLAPSE);
+                        }
+                    }
+                    openItems.set(lastOpenPosition, false);
+                }
+                lastOpen = target;
+                lastOpenParent = parent;
+                lastBtn = button;
+                lastOpenPosition = position;
+            } else if (lastOpenPosition == position) {
+                lastOpenPosition = -1;
+            }
+            animateView(target, button, type);
+            if (null != mItemExpandCollapseListener) {
+                mItemExpandCollapseListener.onItemExpandCollapse(parent, position, type);
+            }
+        }
     }
 
     private void updateExpandable(View target, int position) {
@@ -407,5 +459,17 @@ public class ExpandableListAdapter extends WrapperListAdapterImpl {
                 }
             }
         }
+    }
+
+    public void setOnItemExpandCollapseListener(OnItemExpandCollapseListener listener) {
+        mItemExpandCollapseListener = listener;
+    }
+
+    public interface OnItemExpandCollapseListener {
+        public void onItemExpandCollapse(View view, int position, int type);
+
+        public void onItemInitStatus(View view, int position, int type);
+
+        public boolean onItemNeedExpand(View view, int position);
     }
 }

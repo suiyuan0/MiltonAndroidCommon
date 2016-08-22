@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<resources>
+
+    <string-array name="week">
+        <item>@string/week_monday</item>
+        <item>@string/week_tuesday</item>
+        <item>@string/week_wednesday</item>
+        <item>@string/week_thursday</item>
+        <item>@string/week_friday</item>
+        <item>@string/week_saturday</item>
+        <item>@string/week_sunday</item>
+    </string-array>
+
+</resources>

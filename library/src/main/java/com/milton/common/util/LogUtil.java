@@ -4,10 +4,6 @@ package com.milton.common.util;
 import android.util.Log;
 import android.view.View.MeasureSpec;
 
-/**
- * @hide
- * @deprecated [module internal use] Only use in CC, please do not use it.
- */
 public class LogUtil {
     private final static String MODE_UNSPECIFIED = "UNSPECIFIED";
     private final static String MODE_ATMOST = "AT_MOST";
@@ -17,7 +13,7 @@ public class LogUtil {
     /**
      * Send a error log message and log the exception.
      *
-     * @param tag Used to identify the source of a log message. It usually identifies the class or activity where the log call occurs.
+     * @param tag  Used to identify the source of a log message. It usually identifies the class or activity where the log call occurs.
      * @param args the message to log.
      */
     public static void logE(String tag, Object... args) {
@@ -41,7 +37,7 @@ public class LogUtil {
 
     /**
      * Extracts the mode(String) from the supplied measure specification.
-     * 
+     *
      * @param measureSpec The measure specification to extract the mode from.
      * @return The mode(String) defined in the supplied measure specification
      */
@@ -65,87 +61,87 @@ public class LogUtil {
         return result;
     }
 
-    public static final boolean isDebug = DebugUtil.isDebug;// 是否需要打印bug，可以在application的onCreate函数里面初始化
+    public static final boolean isDebug = DebugUtil.isDebug;
     private static final String TAG = "LogUtil";
 
     // 下面四个是默认tag的函数
     public static void i(String msg) {
-        i(msg, true);
+        i(msg, false);
     }
 
-    public static void i(String msg, boolean showDebug) {
-        if (!showDebug || isDebug) {
+    public static void i(String msg, boolean alwaysShow) {
+        if (alwaysShow || isDebug) {
             Log.i(TAG, msg);
         }
     }
 
     public static void d(String msg) {
-        d(msg, true);
+        d(msg, false);
     }
 
-    public static void d(String msg, boolean showDebug) {
-        if (!showDebug || isDebug) {
+    public static void d(String msg, boolean alwaysShow) {
+        if (alwaysShow || isDebug) {
             Log.d(TAG, msg);
         }
     }
 
     public static void e(String msg) {
-        e(msg, true);
+        e(msg, false);
     }
 
-    public static void e(String msg, boolean showDebug) {
-        if (!showDebug || isDebug) {
+    public static void e(String msg, boolean alwaysShow) {
+        if (alwaysShow || isDebug) {
             Log.e(TAG, msg);
         }
     }
 
     public static void v(String msg) {
-        v(msg, true);
+        v(msg, false);
     }
 
-    public static void v(String msg, boolean showDebug) {
-        if (!showDebug || isDebug) {
+    public static void v(String msg, boolean alwaysShow) {
+        if (alwaysShow || isDebug) {
             Log.v(TAG, msg);
         }
     }
 
     // 下面是传入自定义tag的函数
     public static void i(String tag, String msg) {
-        i(tag, msg, true);
+        i(tag, msg, false);
     }
 
-    public static void i(String tag, String msg, boolean showDebug) {
-        if (!showDebug || isDebug) {
+    public static void i(String tag, String msg, boolean alwaysShow) {
+        if (alwaysShow || isDebug) {
             Log.i(tag, msg);
         }
     }
 
     public static void d(String tag, String msg) {
-        d(tag, msg, true);
+        d(tag, msg, false);
     }
 
-    public static void d(String tag, String msg, boolean showDebug) {
-        if (!showDebug || isDebug) {
+    public static void d(String tag, String msg, boolean alwaysShow) {
+        if (alwaysShow || isDebug) {
             Log.d(tag, msg);
         }
     }
 
     public static void e(String tag, String msg) {
-        e(tag, msg, true);
+        e(tag, msg, false);
     }
 
-    public static void e(String tag, String msg, boolean showDebug) {
-        if (!showDebug || isDebug) {
+    public static void e(String tag, String msg, boolean alwaysShow) {
+        if (alwaysShow || isDebug) {
             Log.e(tag, msg);
         }
     }
 
     public static void v(String tag, String msg) {
-        v(tag, msg, true);
+        v(tag, msg, false);
     }
 
-    public static void v(String tag, String msg, boolean showDebug) {
-        if (!showDebug || isDebug) {
+    public static void v(String tag, String msg, boolean alwaysShow) {
+        if (alwaysShow || isDebug) {
             Log.v(tag, msg);
         }
     }

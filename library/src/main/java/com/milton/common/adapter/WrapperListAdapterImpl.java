@@ -7,18 +7,7 @@ import android.widget.BaseAdapter;
 import android.widget.ListAdapter;
 import android.widget.WrapperListAdapter;
 
-/**
- * Implementation of a WrapperListAdapter interface
- * in which method delegates to the wrapped adapter.
- * <p/>
- * Extend this class if you only want to change a
- * few methods of the wrapped adapter.
- * <p/>
- * The wrapped adapter is available to subclasses as the "wrapped" field.
- *
- * @author tjerk
- * @date 6/9/12 4:41 PM
- */
+
 public abstract class WrapperListAdapterImpl extends BaseAdapter implements WrapperListAdapter {
     protected ListAdapter wrapped;
 

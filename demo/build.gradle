@@ -1,67 +1,33 @@
-//apply plugin: 'com.android.application'
-//
-//android {
-//    compileSdkVersion 22
-//    buildToolsVersion '22.0.1'
-//    defaultConfig {
-//        applicationId "com.milton.common.demo"
-//        minSdkVersion 17
-//        targetSdkVersion 22
-//        versionCode 1
-//        versionName "1.0"
-//    }
-//    buildTypes {
-//        release {
-//            minifyEnabled false
-//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-//        }
-//    }
-//    productFlavors {
-//    }
-//}
+apply plugin: 'com.android.application'
 
-apply plugin: 'com.android.model.application'
-
-model {
-    android {
-        compileSdkVersion = 23
-        buildToolsVersion = "23.0.3"
-        defaultConfig.with {
-            applicationId = "com.milton.common.demo"
-            minSdkVersion.apiLevel = 17
-            targetSdkVersion.apiLevel = 22
-            versionCode = 1
-            versionName = "1.0"
-        }
+android {
+    compileSdkVersion 23
+    buildToolsVersion '23.0.3'
+    defaultConfig {
+        applicationId "com.milton.common.demo"
+        minSdkVersion 17
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
     }
-//    android.productFlavors {
-//        flavor1 {
-////            packageName='com.example.qiujuer.application1'
-////            manifest.srcFile 'exampleapk/AndroidManifest1.xml'
-//        }
-//
-//        flavor2 {
-////            packageName='com.example.qiujuer.application2'
-////            manifest.srcFile 'exampleapk/AndroidManifest2.xml'
-//        }
-//    }
-    android.buildTypes {
+    buildTypes {
         release {
-            minifyEnabled = false
-            proguardFiles.add(file("proguard-rules.txt"))
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-//    productFlavors {
-//    }
+    productFlavors {
+    }
 }
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 //    testCompile 'junit:junit:4.12'
     //    compile 'com.android.support:appcompat-v7:23.3.0'
-    compile 'com.android.support:appcompat-v7:22.2.0'
+    compile 'com.android.support:appcompat-v7:23.4.0'
     compile project(':library')
-    compile 'com.android.support:support-annotations:22.2.0'
-    compile 'com.android.support:support-v4:22.2.0'
+    compile 'com.android.support:support-annotations:23.4.0'
+    compile 'com.android.support:support-v4:23.4.0'
     compile files('libs/locSDK_3.3.jar')
     compile files('libs/slidingmenu.jar')
     compile files('libs/universal-image-loader-1.9.5.jar')

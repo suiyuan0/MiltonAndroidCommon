@@ -2,7 +2,9 @@
 package com.milton.common.util;
 
 import android.content.Context;
+import android.content.pm.ApplicationInfo;
 import android.content.res.Resources;
+import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
@@ -10,10 +12,9 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.TransitionDrawable;
 import android.text.TextPaint;
+import android.text.TextUtils;
 import android.util.TypedValue;
 import android.widget.ImageView;
-
-//import org.apache.http.util.EncodingUtils;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -28,20 +29,20 @@ public class ResourceUtil {
 
     /**
      * 使用TransitionDrawable实现渐变效果 ,比使用AlphaAnimation效果要好，可避免出现闪烁问题。
-     * 
+     *
      * @param imageView
      * @param bitmap
      */
-//    public void setImageBitmap(ImageView imageView, Bitmap bitmap) {
-//        // Use TransitionDrawable to fade in.
-//        final TransitionDrawable td = new TransitionDrawable(new Drawable[] {
-//                new ColorDrawable(android.R.color.transparent), new BitmapDrawable(imageView.getResources(), bitmap)
-//        });
-//        // noinspection deprecation
-//        imageView.setBackgroundDrawable(imageView.getDrawable());
-//        imageView.setImageDrawable(td);
-//        td.startTransition(200);
-//    }
+    public void setImageBitmap(ImageView imageView, Bitmap bitmap) {
+        // Use TransitionDrawable to fade in.
+        final TransitionDrawable td = new TransitionDrawable(new Drawable[]{
+                new ColorDrawable(imageView.getResources().getColor(android.R.color.transparent)), new BitmapDrawable(imageView.getResources(), bitmap)
+        });
+        // noinspection deprecation
+        imageView.setBackgroundDrawable(imageView.getDrawable());
+        imageView.setImageDrawable(td);
+        td.startTransition(200);
+    }
 
     /**
      * dp转px
@@ -87,26 +88,9 @@ public class ResourceUtil {
         return (pxVal / context.getResources().getDisplayMetrics().scaledDensity);
     }
 
-//    /** 从assets 文件夹中读取文本数据 */
-//    public static String getTextFromAssets(final Context context, String fileName) {
-//        String result = "";
-//        try {
-//            InputStream in = context.getResources().getAssets().open(fileName);
-//            // 获取文件的字节数
-//            int lenght = in.available();
-//            // 创建byte数组
-//            byte[] buffer = new byte[lenght];
-//            // 将文件中的数据读到byte数组中
-//            in.read(buffer);
-//            result = EncodingUtils.getString(buffer, "UTF-8");
-//            in.close();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        return result;
-//    }
-
-    /** 从assets 文件夹中读取图片 */
+    /**
+     * 从assets 文件夹中读取图片
+     */
     public static Drawable loadImageFromAsserts(final Context ctx, String fileName) {
         try {
             InputStream is = ctx.getResources().getAssets().open(fileName);
@@ -155,5 +139,69 @@ public class ResourceUtil {
         // 使用获取到的inSampleSize值再次解析图片
         options.inJustDecodeBounds = false;
         return BitmapFactory.decodeResource(res, resId, options);
+    }
+
+    public static int[] getResourceIdArray(Resources res, int arrayId) {
+        if (null == res || arrayId <= 0) {
+            return null;
+        } else {
+            TypedArray ta = res.obtainTypedArray(arrayId);
+            if (null != ta) {
+                final int length = ta.length();
+                int[] result = new int[length];
+                for (int i = 0; i < length; i++) {
+                    result[i] = ta.getResourceId(i, -1);
+                }
+                ta.recycle();
+                return result;
+            } else {
+                return null;
+            }
+        }
+    }
+
+    public static int[] getIntArray(Resources res, int arrayId) {
+        return (null == res || arrayId <= 0) ? null : res.getIntArray(arrayId);
+    }
+
+    public static String[] getStringArray(Resources res, int arrayId) {
+        return (null == res || arrayId <= 0) ? null : res.getStringArray(arrayId);
+    }
+
+    /**
+     * 通过图片名称获取资源ID -- 这个用于解析plist后获取图片资源
+     *
+     * @param context
+     * @param name
+     * @return
+     */
+    public static int getResIdFromName(Context context, String name) {
+        if (null == context || TextUtils.isEmpty(name)) {
+            return -1;
+        }
+
+        String[] temp = name.split("\\.");
+        if (null == temp || temp.length == 0) {
+            return -1;
+        }
+        ApplicationInfo appInfo = context.getApplicationInfo();
+        int resourceId = context.getResources().getIdentifier(temp[0], "mipmap", appInfo.packageName);
+        if (resourceId == 0) {
+            return context.getResources().getIdentifier("scenario_home", "mipmap", appInfo.packageName);
+        }
+        return resourceId;
+    }
+
+    public static String getResName(Context context, int resId) {
+        if (null == context || resId <= 0) {
+            return "";
+        }
+        String name = context.getResources().getResourceName(resId);
+        String[] temp = name.split("\\/");
+        if (temp != null) {
+            return temp[temp.length - 1];
+        } else {
+            return "";
+        }
     }
 }

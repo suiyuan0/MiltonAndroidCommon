@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">MiltomCommon</string>
+    <string name="password_title">请输入密码</string>
+    <string name="voice_tip">语音控制开始了，请大声说出您想控制的设备的名字和动作，\n如：“回家”。</string>
+    <string name="voice_tip2">还未得到您的指示，请点击话筒重试。</string>
+
+    <string name="weekdays_never">从不</string>
+    <string name="weekdays_everyday">每天</string>
+    <string name="weekdays_weekend">周末</string>
+    <string name="weekdays_workday">工作日</string>
+
+    <string name="week_monday">周一</string>
+    <string name="week_tuesday">周二</string>
+    <string name="week_wednesday">周三</string>
+    <string name="week_thursday">周四</string>
+    <string name="week_friday">周五</string>
+    <string name="week_saturday">周六</string>
+    <string name="week_sunday">周日</string>
+    <!--qrcode start-->
+    <string name="scan_qrcode">将二维码放入框内，即可自动扫描</string>
+    <string name="scan_onecode">将条形码放入框内，即可自动扫描</string>
+    <string name="scanr">扫描</string>
+    <string name="scan_qr">二维码</string>
+    <string name="scan_one">条形码</string>
+    <string name="scan_help">帮助</string>
+    <string name="scan_scan">扫一扫</string>
+    <string name="scan_result">扫描结果</string>
+    <string name="scan_content">CUBE信息</string>
+    <string name="scan_back">返回</string>
+    <string name="button_cancel">取消</string>
+    <string name="button_ok">确定</string>
+    <string name="msg_camera_framework_bug">抱歉，Android相机可能被占用，您可能需要重启设备。</string>
+    <string name="msg_default_format">格式</string>
+    <string name="msg_default_meta">元数据</string>
+    <string name="msg_default_time">时间</string>
+    <string name="msg_default_type">类型</string>
+    <string name="action_settings">Settings</string>
+    <string name="input_eq_hint">请输入二维码或者条形码</string>
+    <!--qrcode end-->
+</resources>

@@ -89,6 +89,7 @@ public class CrashHandler implements UncaughtExceptionHandler {
      */
     public boolean handleException(Throwable ex) {
         if (ex == null) return false;
+        Log.e("11111111","222222222"+ex.getMessage());
         new Thread() {
             public void run() {
                 Looper.prepare();

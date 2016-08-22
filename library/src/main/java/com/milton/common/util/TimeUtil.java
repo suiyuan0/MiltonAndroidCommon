@@ -1,8 +1,6 @@
 
 package com.milton.common.util;
 
-import android.util.Log;
-
 import java.text.ParseException;
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
@@ -12,34 +10,30 @@ import java.util.GregorianCalendar;
 import java.util.Locale;
 import java.util.Random;
 
-public class TimeUtil
-{
-    // public static final String FORMAT_MONTH_DAY = "MM-dd";// 12-05
-    // public static final String FORMAT_HOUR_MINUTE = "HH:mm";// 15:08
+public class TimeUtil {
+    public static final String FORMAT_MONTH_DAY = "MM-dd";// 12-05
+    public static final String FORMAT_HOUR_MINUTE = "HH:mm";// 15:08
 
     // public static final String FORMAT_MONTH_DAY="MM-dd";//12-05
     // public static final String FORMAT_MONTH_DAY="MM-dd";//12-05
     // public static final String FORMAT_MONTH_DAY="MM-dd";//12-05
     // public static final String FORMAT_MONTH_DAY="MM-dd";//12-05
 
-    public static String formatShowTime(String date)
-    {
+    public static String formatShowTime(String date) {
         if (date == null || "".endsWith(date)) {
             return "";
         }
         return formatShowTime(stringToTimeMillis(date, "yyyy-MM-dd HH:mm:ss"));
     }
 
-    public static String formatShowTime2(String date)
-    {
+    public static String formatShowTime2(String date) {
         if (date == null || "".endsWith(date)) {
             return "";
         }
         return formatShowTime2(stringToTimeMillis(date, "yyyy-MM-dd HH:mm:ss"));
     }
 
-    public static String formatShowTime3(String date)
-    {
+    public static String formatShowTime3(String date) {
         if (date == null || "".endsWith(date)) {
             return "";
         }
@@ -49,12 +43,11 @@ public class TimeUtil
     /**
      * 03:12 昨天 星期天 星期六 星期五 星期四 星期三 12-08 12-07 15:10 昨天 星期日 星期六 星期五 星期四 星期三
      * 15/12/8 15/5/9
-     * 
+     *
      * @param timeMillis
      * @return
      */
-    public static String formatShowTime(long timeMillis)
-    {
+    public static String formatShowTime(long timeMillis) {
         if (timeMillis == 0L) {
             return "";
         }
@@ -68,16 +61,13 @@ public class TimeUtil
 
         } else if (targetDay <= nowDay - 2 && targetDay >= nowDay - 6) {
             result = getWeekStr(timeMillisToString(timeMillis, "yyyy-MM-dd"));
-        }
-        else
-        {
+        } else {
             result = timeMillisToString(timeMillis, "yy/MM/dd");
         }
         return result;
     }
 
-    public static String formatShowTime2(long timeMillis)
-    {
+    public static String formatShowTime2(long timeMillis) {
         if (timeMillis == 0L) {
             return "";
         }
@@ -92,16 +82,13 @@ public class TimeUtil
 
         } else if (targetDay <= nowDay - 2 && targetDay >= nowDay - 6) {
             result = getWeekStr(timeMillisToString(timeMillis, "yyyy-MM-dd"));
-        }
-        else
-        {
+        } else {
             result = timeMillisToString(timeMillis, "yy/MM/dd");
         }
         return result;
     }
 
-    public static String formatShowTime3(long timeMillis)
-    {
+    public static String formatShowTime3(long timeMillis) {
         if (timeMillis == 0L) {
             return "";
         }
@@ -114,9 +101,7 @@ public class TimeUtil
 
         } else if (delta > 1 && delta <= 6) {
             result = getWeekStr(timeMillisToString(timeMillis, "yyyy-MM-dd"));
-        }
-        else
-        {
+        } else {
             result = timeMillisToString(timeMillis, "yy/MM/dd");
         }
         return result;
@@ -170,9 +155,10 @@ public class TimeUtil
     // }
 
     // ==========================================================================================================
+
     /**
      * 获取现在时间
-     * 
+     *
      * @return 返回时间类型 yyyy-MM-dd HH:mm:ss
      */
     public static Date getNowDate() {
@@ -186,7 +172,7 @@ public class TimeUtil
 
     /**
      * 获取现在时间
-     * 
+     *
      * @return返回短时间格式 yyyy-MM-dd
      */
     public static Date getNowDateShort() {
@@ -202,7 +188,7 @@ public class TimeUtil
 
     /**
      * 根据用户传入的时间表示格式，返回当前时间的格式 如果是yyyyMMdd，注意字母y不能大写。
-     * 
+     *
      * @param sformat yyyyMMddhhmmss
      * @return
      */
@@ -213,7 +199,7 @@ public class TimeUtil
 
     /**
      * 获取现在时间
-     * 
+     *
      * @return返回字符串格式 yyyy-MM-dd HH:mm:ss
      */
     public static String getStringDate() {
@@ -223,7 +209,7 @@ public class TimeUtil
 
     /**
      * 获取现在时间
-     * 
+     *
      * @return 返回短时间字符串格式yyyy-MM-dd
      */
     public static String getStringDateShort() {
@@ -233,7 +219,7 @@ public class TimeUtil
 
     /**
      * 获取时间 小时:分;秒 HH:mm:ss
-     * 
+     *
      * @return
      */
     public static String getTimeShort() {
@@ -252,7 +238,7 @@ public class TimeUtil
 
     /**
      * 得到现在分钟
-     * 
+     *
      * @return
      */
     public static String getTime() {
@@ -262,9 +248,10 @@ public class TimeUtil
     }
 
     // ==========================================================================================================
+
     /**
      * 将长时间格式字符串转换为时间 yyyy-MM-dd HH:mm:ss
-     * 
+     *
      * @param strDate
      * @return
      */
@@ -277,7 +264,7 @@ public class TimeUtil
 
     /**
      * 将短时间格式字符串转换为时间 yyyy-MM-dd
-     * 
+     *
      * @param strDate
      * @return
      */
@@ -288,8 +275,22 @@ public class TimeUtil
         return strtodate;
     }
 
+    /**
+     * @param strDate
+     * @param format
+     * @return
+     */
+    public static Date strToDate(String strDate, String format) {
+        SimpleDateFormat formatter = new SimpleDateFormat(format);
+        ParsePosition pos = new ParsePosition(0);
+        Date strtodate = formatter.parse(strDate, pos);
+        return strtodate;
+    }
     // ===========================================================================================================
-    /** * 将长时间格式时间转换为字符串 yyyy-MM-dd HH:mm:ss * * @param dateDate * @return */
+
+    /**
+     * 将长时间格式时间转换为字符串 yyyy-MM-dd HH:mm:ss * * @param dateDate * @return
+     */
     public static String dateToStrLong(Date dateDate) {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         return formatter.format(dateDate);
@@ -297,7 +298,7 @@ public class TimeUtil
 
     /**
      * 将短时间格式时间转换为字符串 yyyy-MM-dd
-     * 
+     *
      * @param dateDate
      * @return
      */
@@ -307,8 +308,18 @@ public class TimeUtil
     }
 
     /**
+     * @param dateDate
+     * @param format
+     * @return
+     */
+    public static String dateToStr(Date dateDate, String format) {
+        SimpleDateFormat formatter = new SimpleDateFormat(format);
+        return formatter.format(dateDate);
+    }
+
+    /**
      * 得到现在时间
-     * 
+     *
      * @return
      */
     public static Date getNow() {
@@ -316,6 +327,7 @@ public class TimeUtil
     }
 
     // =========================================================================================================
+
     /**
      * 时间前推或后推分钟,其中JJ表示分钟.
      */
@@ -353,7 +365,7 @@ public class TimeUtil
 
     /**
      * 判断是否润年
-     * 
+     *
      * @param ddate
      * @return
      */
@@ -379,9 +391,10 @@ public class TimeUtil
     }
 
     // ===========================================================================================================
+
     /**
      * 返回美国时间格式 26 Apr 2006
-     * 
+     *
      * @param str
      * @return
      */
@@ -395,9 +408,10 @@ public class TimeUtil
     }
 
     // ===========================================================================================================
+
     /**
      * 获取一个月的最后一天
-     * 
+     *
      * @param dat
      * @return
      */
@@ -420,9 +434,10 @@ public class TimeUtil
     }
 
     // ===========================================================================================================
+
     /**
      * 判断二个时间是否在同一个周
-     * 
+     *
      * @param date1
      * @param date2
      * @return
@@ -448,9 +463,10 @@ public class TimeUtil
     }
 
     // ===========================================================================================================
+
     /**
      * 产生周序列,即得到当前时间所在的年度是第几周
-     * 
+     *
      * @return
      */
     public static String getSeqWeek() {
@@ -463,9 +479,10 @@ public class TimeUtil
     }
 
     // ===========================================================================================================
+
     /**
      * 获得一个日期所在的周的星期几的日期，如要找出2002年2月3日所在周的星期一是几号
-     * 
+     *
      * @param sdate
      * @param num
      * @return
@@ -493,9 +510,10 @@ public class TimeUtil
     }
 
     // ===========================================================================================================
+
     /**
      * 根据一个日期，返回是星期几的字符串
-     * 
+     *
      * @param sdate
      * @return
      */
@@ -536,7 +554,7 @@ public class TimeUtil
     /**
      * 形成如下的日历 ， 根据传入的一个时间返回一个结构 星期日 星期一 星期二 星期三 星期四 星期五 星期六 下面是当月的各个时间
      * 此函数返回该日历第一行星期日所在的日期
-     * 
+     *
      * @param sdate
      * @return
      */
@@ -554,9 +572,10 @@ public class TimeUtil
     }
 
     // ===========================================================================================================
+
     /**
      * 取得数据库主键 生成格式为yyyymmddhhmmss+k位随机数
-     * 
+     *
      * @param k 表示是取几位随机数，可以自己定
      */
 
@@ -567,7 +586,7 @@ public class TimeUtil
 
     /**
      * 返回一个随机数
-     * 
+     *
      * @param i
      * @return
      */
@@ -586,7 +605,7 @@ public class TimeUtil
     // ===========================================================================================================
     /* *//**
      * 提取一个月中的最后一天
-     * 
+     *
      * @param day
      * @return
      */
@@ -634,7 +653,7 @@ public class TimeUtil
 
     /**
      * 两个时间之间的天数
-     * 
+     *
      * @param date1
      * @param date2
      * @return

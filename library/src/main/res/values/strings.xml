@@ -1,8 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">AlinmiCommonLibrary</string>
+    <string name="app_name">MiltomCommon</string>
     <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
     <string name="screen_resolution">xxh</string>
+    <string name="password_title">请输入密码</string>
+    <string name="voice_tip">语音控制开始了，请大声说出您想控制的设备的名字和动作，\n如：“回家”。</string>
+    <string name="voice_tip2">还未得到您的指示，请点击话筒重试。</string>
+
+    <string name="weekdays_never">never</string>
+    <string name="weekdays_everyday">everyday</string>
+    <string name="weekdays_weekend">weekend</string>
+    <string name="weekdays_workday">workday</string>
+
+    <string name="week_monday">Monday</string>
+    <string name="week_tuesday">Tuesday</string>
+    <string name="week_wednesday">Wednesday</string>
+    <string name="week_thursday">Thursday</string>
+    <string name="week_friday">Friday</string>
+    <string name="week_saturday">Saturday</string>
+    <string name="week_sunday">Sunday</string>
+    <!--pickerview start-->
+    <string name="pickerview_cancel">取消</string>
+    <string name="pickerview_submit">确定</string>
+    <string name="pickerview_year">年</string>
+    <string name="pickerview_month">月</string>
+    <string name="pickerview_day">日</string>
+    <string name="pickerview_hours">时</string>
+    <string name="pickerview_minutes">分</string>
+    <string name="pickerview_seconds">秒</string>
+    <!--pickerview end-->
+    <!--qrcode start-->
+    <string name="scan_qrcode">将二维码放入框内，即可自动扫描</string>
+    <string name="scanr">扫描</string>
+    <string name="scan_qr">二维码</string>
+    <string name="scan_one">条形码</string>
+    <string name="scan_help">帮助</string>
+    <string name="scan_scan">扫一扫</string>
+    <string name="scan_result">扫描结果</string>
+    <string name="scan_content">CUBE信息</string>
+    <string name="scan_back">返回</string>
+    <string name="button_cancel">取消</string>
+    <string name="button_ok">确定</string>
+    <string name="msg_camera_framework_bug">抱歉，Android相机可能被占用，您可能需要重启设备。</string>
+    <string name="msg_default_format">格式</string>
+    <string name="msg_default_meta">元数据</string>
+    <string name="msg_default_time">时间</string>
+    <string name="msg_default_type">类型</string>
+    <string name="action_settings">Settings</string>
+    <string name="input_eq_hint">请输入二维码或者条形码</string>
+    <!--qrcode end-->
+    <!--update start-->
+    <string name="android_auto_update_dialog_title">发现新版本</string>
+    <string name="android_auto_update_notify_ticker">发现新版本,点击进行升级</string>
+    <string name="android_auto_update_notify_content">发现新版本,点击进行升级</string>
+    <string name="android_auto_update_dialog_btn_download">立即下载</string>
+    <string name="android_auto_update_dialog_btn_cancel">以后再说</string>
+    <string name="android_auto_update_toast_no_new_update">已经是最新版本</string>
+    <string name="android_auto_update_download_progress">正在下载:%1$d%%</string>
+    <string name="android_auto_update_dialog_checking">正在检查版本</string>
+    <!--update end-->
 </resources>
