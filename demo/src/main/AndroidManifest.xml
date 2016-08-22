@@ -177,9 +177,13 @@
         </service>
 
         <activity android:name="com.milton.common.demo.activity.other.SilentInstallFileExplorerActivity" />
+        <activity android:name="com.milton.common.demo.activity.other.UpdateActivity" />
         <!-- Other End -->
         <!-- Jni Begin -->
         <activity android:name="com.milton.common.demo.activity.jni.HelloJniActivity" />
+        <service
+            android:name="com.milton.common.update.DownloadService"
+            android:exported="true" />
         <!-- Jni End -->
     </application>
 
