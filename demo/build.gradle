@@ -10,10 +10,59 @@ android {
         versionCode 1
         versionName "1.0"
     }
+    dexOptions { javaMaxHeapSize "8g" }
+    repositories {
+        maven { url 'http://repo1.maven.org/maven2' }
+        jcenter()
+    }
+    //签名
+    signingConfigs {
+        debug {
+            storeFile file("release.jks")
+            storePassword "key@milton"
+            keyAlias "androidbase"
+            keyPassword "key@milton"
+        }
+        relealse {
+            //这样写就得把demo.jk文件放在项目目录
+            storeFile file("release.jks")
+            storePassword "key@milton"
+            keyAlias "androidbase"
+            keyPassword "key@milton"
+        }
+    }
+
     buildTypes {
-        release {
+        debug {
+            // 显示Log
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+//
+//            versionNameSuffix "-debugaaa"
             minifyEnabled false
+//            zipAlignEnabled false
+            shrinkResources false
+            signingConfig signingConfigs.debug
+        }
+
+        release {
+            // 不显示Log
+            buildConfigField "boolean", "LOG_DEBUG", "false"
+            //混淆
+            minifyEnabled false
+            //Zipalign优化
+            zipAlignEnabled true
+            // 移除无用的resource文件
+            shrinkResources true
+            //前一部分代表系统默认的android程序的混淆文件，该文件已经包含了基本的混淆声明
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+//            proguardFiles 'proguard-android.txt', 'proguard-rules.pro'
+            //签名
+            signingConfig signingConfigs.relealse
+        }
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
         }
     }
     productFlavors {
@@ -22,16 +71,11 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-//    testCompile 'junit:junit:4.12'
-    //    compile 'com.android.support:appcompat-v7:23.3.0'
     compile 'com.android.support:appcompat-v7:23.4.0'
     compile project(':library')
     compile 'com.android.support:support-annotations:23.4.0'
     compile 'com.android.support:support-v4:23.4.0'
-    compile files('libs/locSDK_3.3.jar')
-    compile files('libs/slidingmenu.jar')
-    compile files('libs/universal-image-loader-1.9.5.jar')
-    compile files('libs/Volley.jar')
-    compile files('libs/nineoldandroids-2.4.0.jar')
+    compile 'com.android.support:recyclerview-v7:23.4.0'
+    compile 'de.greenrobot:eventbus:2.4.0'
     compile project(':jni')
 }

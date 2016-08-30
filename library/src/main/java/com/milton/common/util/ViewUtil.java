@@ -79,4 +79,11 @@ public class ViewUtil {
         }
         return (T) childView;
     }
+    //onCreate中强行获取View的宽高
+    public static int[] forceGetViewSize(View view) {
+        int widthMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
+        int heightMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
+        view.measure(widthMeasureSpec, heightMeasureSpec);
+        return new int[]{widthMeasureSpec, heightMeasureSpec};
+    }
 }

@@ -103,5 +103,57 @@
         <attr name="default_to_loading_more_scrolling_duration" format="integer" />
     </declare-styleable>
     <!--swipetoloadlayout end-->
-
+    <!--SwipeMenu start-->
+    <declare-styleable name="SwipeMenu">
+        <!--动画的代码-->
+        <attr name="sm_type" format="integer" />
+        <!--滑出菜单的范围-->
+        <attr name="sm_dragoffset" format="dimension" />
+        <!--滑出菜单距边界的值-->
+        <attr name="sm_menuoffset" format="dimension" />
+        <!--滑动开始的缩放值-->
+        <attr name="sm_startscale" format="float" />
+        <!--滑动开始的alpha值-->
+        <attr name="sm_startalpha" format="float" />
+        <!--滑动开始的3D旋转角度-->
+        <attr name="sm_start3dangle" format="integer" />
+        <!--全局颜色-->
+        <attr name="sm_fullcolor" format="color" />
+        <!--全局背景-->
+        <attr name="sm_fullimage" format="reference" />
+        <!--以下方法只在设置全局图片背景时候有用-->
+        <!--标题栏颜色-->
+        <attr name="sm_statucolor" format="color" />
+        <!--全局背景的模糊度-->
+        <attr name="sm_fullimageblur" format="float" />
+    </declare-styleable>
+    <!--SwipeMenu end-->
+    <!--MovingView start -->
+    <declare-styleable name="MovingDotView">
+        <!--小点的总数-->
+        <attr name="md_dot_count" format="integer" />
+        <!--中心大点的半径-->
+        <attr name="md_center_dot_radius" format="dimension" />
+        <!--中心大点的资源文件-->
+        <attr name="md_center_dot_back" format="reference" />
+        <!--小点的颜色-->
+        <attr name="md_dot_color" format="color" />
+        <!--最大小点半径-->
+        <attr name="md_dot_max_radius" format="dimension" />
+        <!--最小小点半径-->
+        <attr name="md_dot_min_radius" format="dimension" />
+        <!--小圆点的最大速度(1~10)-->
+        <attr name="md_dot_max_speed" format="integer" />
+        <!--小圆点的最小速度(1~10)-->
+        <attr name="md_dot_min_speed" format="integer" />
+        <!--进度显示文字大小-->
+        <attr name="md_text_size" format="dimension" />
+        <!--进度显示文字颜色-->
+        <attr name="md_text_color" format="color" />
+        <!--加速按钮的文字颜色-->
+        <attr name="md_btn_text_color" format="color" />
+        <!--动画持续的时间-->
+        <attr name="md_animator_duration" format="integer" />
+    </declare-styleable>
+    <!--MovingView end -->
 </resources>

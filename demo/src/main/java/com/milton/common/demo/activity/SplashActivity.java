@@ -9,20 +9,61 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import com.milton.common.demo.R;
+import com.milton.common.demo.eventbus.BaseEvent;
+import com.milton.common.util.LogUtil;
 import com.milton.common.util.PreferenceConstants;
 import com.milton.common.util.PreferenceUtils;
 import com.milton.common.util.TimeUtil;
+import com.tencent.android.tpush.XGIOperateCallback;
+import com.tencent.android.tpush.XGPushClickedResult;
+import com.tencent.android.tpush.XGPushConfig;
+import com.tencent.android.tpush.XGPushManager;
+
+import de.greenrobot.event.EventBus;
 
 public class SplashActivity extends FragmentActivity {
     private Handler mHandler;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash);
+        // 判断是否从推送通知栏打开的
+        XGPushClickedResult message = XGPushManager.onActivityStarted(this);
+        LogUtil.e("alinmi22", "isTaskRoot() = " + isTaskRoot() + ", XGPushClickedResult = " + message);
+        if (message != null) {
+            // 获取自定义key-value
+            String customContent = message.getCustomContent();
+            if (isTaskRoot()) {
+                login();
+            } else {
+                EventBus.getDefault().post(new BaseEvent(1, customContent, true));
+                finish();
+            }
+        } else {
+            login();
+        }
 //        log();
 //        log2();
 //        log3();
+
+    }
+
+    private void login() {
+        String token = XGPushConfig.getToken(getApplicationContext());
+        XGPushManager.registerPush(getApplicationContext(), new XGIOperateCallback() {
+            @Override
+            public void onSuccess(Object data, int flag) {
+                LogUtil.e("alinmi22", "+++ register push sucess. token:" + data);
+            }
+
+            @Override
+            public void onFail(Object data, int errCode, String msg) {
+                LogUtil.e("alinmi22", "+++ register push fail. token:" + data + ", errCode:" + errCode + ",msg:" + msg);
+            }
+        });
         mHandler = new Handler();
         String password = PreferenceUtils.getPrefString(this, PreferenceConstants.PASSWORD, "");
         if (!TextUtils.isEmpty(password)) {
@@ -31,6 +72,7 @@ public class SplashActivity extends FragmentActivity {
             mHandler.postDelayed(gotoLoginAct, 1000);
         }
     }
+
 
     Runnable gotoLoginAct = new Runnable() {
 
@@ -64,6 +106,7 @@ public class SplashActivity extends FragmentActivity {
             "2015-12-24 08:08:08",
             "2015-12-23 08:08:08"
     };
+
     private void log() {
         Log.e("milton11", "formatShowTime");
         for (int i = 0; i < times.length; i++) {
@@ -83,5 +126,11 @@ public class SplashActivity extends FragmentActivity {
         for (int i = 0; i < times.length; i++) {
             Log.e("milton11", times[i] + " -> " + TimeUtil.formatShowTime3(times[i]));
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
     }
 }

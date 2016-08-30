@@ -34,6 +34,7 @@ public class LoginActivity extends BaseActivity {
             public void onClick(View v) {
                 save2Preferences();
                 startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                finish();
             }
         });
     }

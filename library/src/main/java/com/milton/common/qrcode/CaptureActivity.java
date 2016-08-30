@@ -93,7 +93,7 @@ public class CaptureActivity extends Activity implements SurfaceHolder.Callback 
     }
 
     private void setTheme() {
-        setTheme(R.style.CubeBaseTheme);
+        setTheme(R.style.CompatBaseTheme);
     }
 
     /**

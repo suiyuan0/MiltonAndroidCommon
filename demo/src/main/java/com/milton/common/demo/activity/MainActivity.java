@@ -2,6 +2,7 @@
 package com.milton.common.demo.activity;
 
 import android.app.ActionBar;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.support.v4.app.FragmentTabHost;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -23,11 +25,16 @@ import android.widget.TextView;
 
 import com.milton.common.demo.R;
 import com.milton.common.demo.Shakespeare;
+import com.milton.common.demo.eventbus.BaseEvent;
 import com.milton.common.demo.fragment.Fragment1Friends;
 import com.milton.common.demo.fragment.Fragment1Home;
 import com.milton.common.demo.fragment.Fragment1Message;
 import com.milton.common.demo.fragment.Fragment1More;
 import com.milton.common.demo.fragment.Fragment1Search;
+import com.milton.common.util.LogUtil;
+import com.milton.common.util.ToastUtil;
+
+import de.greenrobot.event.EventBus;
 
 /**
  * @author zqy
@@ -73,6 +80,12 @@ public class MainActivity extends FragmentActivity implements android.widget.Tab
             "首页", "消息", "好友", "搜索", "更多"
     };
 
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        setIntent(intent);// 必须要调用这句
+    }
+
     /**
      *
      *
@@ -80,6 +93,7 @@ public class MainActivity extends FragmentActivity implements android.widget.Tab
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        EventBus.getDefault().register(this);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mStartDrawer = (ListView) findViewById(R.id.start_drawer);
         mEndDrawer = (ListView) findViewById(R.id.end_drawer);
@@ -306,4 +320,56 @@ public class MainActivity extends FragmentActivity implements android.widget.Tab
             mTitle = title;
         }
     }
+
+    private long firstTime = 0;
+
+    @Override
+    public boolean onKeyUp(int keyCode, KeyEvent event) {
+        switch (keyCode) {
+            case KeyEvent.KEYCODE_BACK:
+                long secondTime = System.currentTimeMillis();
+                if (secondTime - firstTime > 2000) {
+                    ToastUtil.showShort(MainActivity.this, R.string.double_click_exit, true);
+                    firstTime = secondTime;
+                    return true;
+                } else {
+                    System.exit(0);
+                }
+                break;
+        }
+        return super.onKeyUp(keyCode, event);
+    }
+
+    @Override
+    protected void onDestroy() {
+        LogUtil.e("alinmi22", "onDestroy");
+        EventBus.getDefault().unregister(this);
+        super.onDestroy();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+    }
+
+    public void onEventMainThread(BaseEvent event) {
+        ToastUtil.showShort(this, event.getResult());
+//        if (event instanceof CubeBasicEvent) {
+//            final CubeBasicEvent cubeBasicEvent = (CubeBasicEvent) event;
+//            if (cubeBasicEvent.getType() == CubeEvents.CubeBasicEventType.TIME_OUT) {
+////                ToastUtil.showShort(this, cubeBasicEvent.getMessage());
+//                dismissLoadingDialog();
+//            }else if(cubeBasicEvent.getType() == CubeEvents.CubeBasicEventType.CONNECTING_LOST) {
+//                finish();
+//            }
+//        }
+    }
+
 }

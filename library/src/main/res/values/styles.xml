@@ -213,7 +213,7 @@
 
     </style>
 
-    <style name="CubeBaseTheme">
+    <style name="CompatBaseTheme">
         <item name="android:windowAnimationStyle">@style/ActivityAnimation</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>

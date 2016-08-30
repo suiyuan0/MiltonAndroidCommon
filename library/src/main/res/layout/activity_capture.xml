@@ -7,7 +7,7 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent" />
 
-    <com.honeywell.lib.qrcode.widgets.ViewfinderView
+    <com.milton.common.qrcode.widgets.ViewfinderView
         android:id="@+id/viewfinder_view"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"

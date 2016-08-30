@@ -66,5 +66,5 @@
     <drawable name="trans">@color/color_hei_8</drawable>
 
     <item name="preview_btn_bg_press" type="drawable">#ff000000</item>
-
+    <color name="colorLightWhite">#c9c8c8</color>
 </resources>

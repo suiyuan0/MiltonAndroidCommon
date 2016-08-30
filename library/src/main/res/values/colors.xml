@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="colorPrimary">#4996EA</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#4096D1</color>
     <color name="title_text_color">#ffffffff</color>
     <color name="title_text_color_night">#ffb1b1b1</color>
     <color name="dialog_list_button_background_normal">#464646</color>
@@ -35,4 +39,7 @@
     <color name="viewfinder_laser">#ffcc0000</color> <!-- Android standard ICS color -->
     <color name="viewfinder_mask">#60000000</color>
     <!-- qrcode end-->
+    <!--custom start-->
+    <color name="header_background">#FFFFFF</color>
+    <!--custom end-->
 </resources>

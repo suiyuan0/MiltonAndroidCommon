@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.honeywell.lib.widgets.FullScreenFrameLayout
+    <com.milton.common.widgets.FullScreenFrameLayout
         android:id="@+id/layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -39,5 +39,5 @@
                 android:textColor="#B8B8B8"
                 android:textSize="16sp" />
         </LinearLayout>
-    </com.honeywell.lib.widgets.FullScreenFrameLayout>
+    </com.milton.common.widgets.FullScreenFrameLayout>
 </LinearLayout>

@@ -34,8 +34,8 @@ public class CaptureInputActivity extends Activity implements TextView.OnEditorA
         initView();
     }
 
-    private void setTheme(){
-        setTheme(R.style.CubeBaseTheme);
+    private void setTheme() {
+        setTheme(R.style.CompatBaseTheme);
     }
 
     private void initView() {

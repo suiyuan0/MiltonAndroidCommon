@@ -4,7 +4,7 @@
     <string name="subscribe_my_category">我的频道</string>
     <string name="subscribe_manager_category_info_2">单击增删频道，长按拖拽排序</string>
     <string name="subscribe_more_category">更多频道</string>
-    <string name="all_rights_reserved">Copyright © 2012-2013 way. All Rights Reserved.</string>
+    <string name="all_rights_reserved">Copyright © 2012-201l Milton. All Rights Reserved.</string>
     <string name="setting_about_description">弹指间 心无间</string>
     <string name="accessibility_service_description">智能安装服务，无需用户的任何操作就可以自动安装程序。</string>
     <string name="action_settings">Settings</string>
@@ -31,4 +31,6 @@
     <string name="s6">SYSTEM_UI_LAYOUT_FLAGS</string>
     <string name="s7">SYSTEM_UI_FLAG_HIDE_NAVIGATION</string>
     <string name="s8">SYSTEM_UI_FLAG_LOW_PROFILE</string>
+    <string name="double_click_exit">Click again for exiting.</string>
+    <string name="title_activity_widget_common">WidgetCommonActivity</string>
 </resources>

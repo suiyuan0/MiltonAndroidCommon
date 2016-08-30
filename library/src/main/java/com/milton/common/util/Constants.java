@@ -12,4 +12,12 @@ public class Constants {
     public static final String TAG = "UpdateChecker";
     public static final String UPDATE_URL = "https://raw.githubusercontent.com/feicien/android-auto-update/develop/extras/update.json";
     //update end
+    public static final String TITLE = "title11";
+    public static final String CONTENT = "content11";
+    public static final String CONTENT2 = "content22";
+    public static final String TYPE = "type111";
+    public static final String TYPE_STRING = "type_string";
+    public static final String RESULT = "result";
+    public static final String SUCCESS = "success";
+    public static final String FINISH = "finish";
 }

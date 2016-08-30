@@ -6,6 +6,7 @@ import com.milton.common.demo.bean.CityEntity;
 import java.util.ArrayList;
 
 public class Constants {
+    public static final String RES_ID = "resID";
     public static final String UTIL_ACTION = "android.intent.action.UtilsActivity";
 
     /*

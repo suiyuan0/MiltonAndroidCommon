@@ -1,2 +1,7 @@
-include ':app', ':library', ':demo', ':jni', ':ipcjni', ':testipcjni'
+//include ':app'
+include ':library'
+include ':demo'
+include ':jni'
+//include ':ipcjni'
+//include ':testipcjni'
 

@@ -24,11 +24,12 @@ public class TabViewPagerAdapter extends FragmentPagerAdapter {
     private final static String WIDGET = "Widget";
     private final static String OTHER = "Other";
     private final static String JNI = "Jni";
+    private final static String PUSH = "Push";
     //    private String mTabTitle[] = new String[]{
 //            "Sliding", "Dialog","ListView", "Activity", "ImageLoader", "Socket", "Drawable", "View", "Animation", "Util", "Preference", "Html5", "MultiMedia", "Notification", "Widget", "Other"
 //    };
     private String mTabTitle[] = new String[]{
-            JNI, SLIDING, DIALOG, LISTVIEW, ACTIVITY, IMAGELOADER, SOCKET, DRAWABLE, VIEW, ANIMATION, UTIL, PREFERENCE, HTML5, MUTILMEDIA, NOTIFICATION, WIDGET, OTHER
+            PUSH, JNI, SLIDING, DIALOG, LISTVIEW, ACTIVITY, IMAGELOADER, SOCKET, DRAWABLE, VIEW, ANIMATION, UTIL, PREFERENCE, HTML5, MUTILMEDIA, NOTIFICATION, WIDGET, OTHER
     };
 //    private Context mContext;
 
@@ -56,15 +57,15 @@ public class TabViewPagerAdapter extends FragmentPagerAdapter {
         } else if (checkName(SOCKET, position)) {
             return new Fragment2Socket();
         } else if (checkName(DRAWABLE, position)) {
-            return BaseFragment.newInstance(position);
+            return CommonFragment.newInstance(position);
         } else if (checkName(VIEW, position)) {
-            return BaseFragment.newInstance(position);
+            return CommonFragment.newInstance(position);
         } else if (checkName(ANIMATION, position)) {
-            return BaseFragment.newInstance(position);
+            return CommonFragment.newInstance(position);
         } else if (checkName(UTIL, position)) {
             return new Fragment2Util();
         } else if (checkName(PREFERENCE, position)) {
-            return BaseFragment.newInstance(position);
+            return CommonFragment.newInstance(position);
         } else if (checkName(HTML5, position)) {
             return new Fragment2Html5();
         } else if (checkName(MUTILMEDIA, position)) {
@@ -77,8 +78,10 @@ public class TabViewPagerAdapter extends FragmentPagerAdapter {
             return new Fragment2Other();
         } else if (checkName(JNI, position)) {
             return new Fragment2Jni();
+        } else if (checkName(PUSH, position)) {
+            return new Fragment2Push();
         } else {
-            return BaseFragment.newInstance(position);
+            return CommonFragment.newInstance(position);
         }
     }
 
