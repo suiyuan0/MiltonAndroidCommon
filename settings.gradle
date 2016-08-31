@@ -1,7 +1,9 @@
 //include ':app'
-include ':library'
+include ':library', ':okhttp'
 include ':demo'
 include ':jni'
+include ':okhttputils'
+include ':sample-okhttp'
 //include ':ipcjni'
 //include ':testipcjni'
 
