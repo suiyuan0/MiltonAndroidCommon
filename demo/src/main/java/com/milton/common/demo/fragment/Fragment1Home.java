@@ -19,9 +19,7 @@ public class Fragment1Home extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        Log.e("milton6", "onCreateView");
-        if (rootView == null)
-        {
+        if (rootView == null) {
             rootView = inflater.inflate(R.layout.fragment1, null);
             ViewPager viewPager = (ViewPager) rootView.findViewById(R.id.viewpager);
             viewPager.setAdapter(new TabViewPagerAdapter(getActivity().getSupportFragmentManager(), getActivity()));
@@ -41,8 +39,7 @@ public class Fragment1Home extends Fragment {
         }
         // 缓存的rootView需要判断是否已经被加过parent，如果有parent需要从parent删除，要不然会发生这个rootview已经有parent的错误。
         ViewGroup parent = (ViewGroup) rootView.getParent();
-        if (parent != null)
-        {
+        if (parent != null) {
             parent.removeView(rootView);
         }
         return rootView;
@@ -76,7 +73,7 @@ public class Fragment1Home extends Fragment {
 
     @Override
     public void onViewStateRestored(@Nullable
-    Bundle savedInstanceState) {
+                                    Bundle savedInstanceState) {
         super.onViewStateRestored(savedInstanceState);
         Log.e("milton6", "onViewStateRestored");
     }
