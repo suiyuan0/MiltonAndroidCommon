@@ -1,0 +1,89 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_header_opaque" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dip"
+                android:background="@drawable/btn_common"
+                android:text="@string/pick_photo" />
+
+            <Button
+                android:id="@+id/button_no_camera"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/button"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dip"
+                android:text="@string/pick_photo_without_camera" />
+
+            <Button
+                android:id="@+id/button_one_photo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/button_no_camera"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dip"
+                android:text="@string/pick_one_photo" />
+
+            <Button
+                android:id="@+id/button_photo_gif"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/button_one_photo"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dip"
+                android:text="@string/pick_photo_gif" />
+
+            <Button
+                android:id="@+id/button_multiple_picked"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/button_photo_gif"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dip"
+                android:text="@string/multiple_pick_photo" />
+
+            <!--<android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_view"
+                android:layout_below="@id/button_multiple_picked"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                />-->
+
+            <me.iwf.photopicker.widget.MultiPickResultView
+                android:id="@+id/recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <me.iwf.photopicker.widget.MultiPickResultView
+                android:id="@+id/recycler_onlylook"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/button_multiple_picked"
+                android:layout_marginTop="20dp" />
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+</LinearLayout>

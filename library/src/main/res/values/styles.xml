@@ -213,11 +213,24 @@
 
     </style>
 
-    <style name="CompatBaseTheme">
+    <style name="CompatBaseTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="android:windowAnimationStyle">@style/ActivityAnimation</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:windowEnableSplitTouch">false</item>
         <item name="android:splitMotionEvents">false</item>
     </style>
+    <!--PhotoPicker start-->
+    <style name="actionBarTheme" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:textColorPrimary">@android:color/primary_text_light</item>
+        <item name="actionBarSize">@dimen/actionBarSize</item>
+    </style>
+
+    <style name="PhotoPickerTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="actionBarTheme">@style/actionBarTheme</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="actionBarSize">@dimen/actionBarSize</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+    </style>
+    <!--PhotoPicker end-->
 </resources>

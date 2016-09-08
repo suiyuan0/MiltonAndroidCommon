@@ -14,7 +14,7 @@ import com.milton.common.adapter.OneLineTextListAdapter;
 import com.milton.common.demo.R;
 import com.milton.common.demo.activity.sliding.DrawerLayoutActivity;
 import com.milton.common.demo.activity.sliding.SlidingMenuActivity;
-import com.milton.common.demo.activity.widget.WidgetCommonActivity;
+import com.milton.common.demo.activity.CommonActivity;
 import com.milton.common.util.Constants;
 
 public class Fragment2Base extends Fragment implements AdapterView.OnItemClickListener {
@@ -62,7 +62,7 @@ public class Fragment2Base extends Fragment implements AdapterView.OnItemClickLi
         if (isActivity()) {
             getActivity().startActivity(new Intent(getActivity(), mClassList[i]));
         } else {
-            Intent intent = new Intent(getActivity(), WidgetCommonActivity.class);
+            Intent intent = new Intent(getActivity(), CommonActivity.class);
             intent.putExtra(Constants.TYPE_STRING, mTypeList[i]);
             intent.putExtra(Constants.TITLE, mTitleList[i]);
             getActivity().startActivity(intent);

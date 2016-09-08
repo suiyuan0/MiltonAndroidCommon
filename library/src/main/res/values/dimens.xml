@@ -29,4 +29,7 @@
     <dimen name="standard_padding">8dip</dimen>
     <dimen name="half_padding">4dip</dimen>
     <!-- qrcode end-->
+    <!--photo picker start-->
+    <dimen name="actionBarSize">44dip</dimen>
+    <!--photo picker end-->
 </resources>

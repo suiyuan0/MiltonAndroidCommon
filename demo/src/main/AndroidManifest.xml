@@ -33,6 +33,12 @@
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BATTERY_STATS" />
 
+    <!--<uses-feature-->
+    <!--android:name="android.hardware.camera"-->
+    <!--android:required="false" />-->
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
     <!-- XG Push end -->
     <application
         android:name=".AppApplication"
@@ -198,6 +204,13 @@
 
         <activity android:name=".activity.other.SilentInstallFileExplorerActivity" />
         <activity android:name=".activity.other.UpdateActivity" />
+        <activity android:name=".activity.other.PhotoPickerActivity" />
+        <activity
+            android:name="me.iwf.photopicker.PhotoPickerActivity"
+            android:theme="@style/PhotoPickerTheme" />
+        <activity
+            android:name="me.iwf.photopicker.PhotoPagerActivity"
+            android:theme="@style/PhotoPickerTheme" />
         <!-- Other End -->
         <!-- Jni Begin -->
         <activity android:name=".activity.jni.HelloJniActivity" />
@@ -316,7 +329,7 @@
 
         <activity android:name=".activity.sliding.SwipeMenuActivity" />
         <activity
-            android:name=".activity.widget.WidgetCommonActivity"
+            android:name=".activity.CommonActivity"
             android:label="@string/title_activity_widget_common"></activity>
     </application>
 

@@ -156,4 +156,12 @@
         <attr name="md_animator_duration" format="integer" />
     </declare-styleable>
     <!--MovingView end -->
+    <!--SmoothRoundProgressBar start-->
+    <declare-styleable name="MyCircleProgressBar">
+        <attr name="cpb_strokeWidth" format="dimension" />
+        <attr name="cpb_startColor" format="color" />
+        <attr name="cpb_endColor" format="color" />
+        <attr name="cpb_duration" format="integer" />
+    </declare-styleable>
+    <!--SmoothRoundProgressBar end-->
 </resources>

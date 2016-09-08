@@ -20,10 +20,10 @@ public abstract class TitleBarActivity extends BaseCompatActivity {
     protected ImageView mLeft;
     protected ImageView mRight;
     protected TextView mTextViewTitle;
-    private LoadingDialog mLoadingDialog;
     protected String mTitle;
     protected int mType;
     protected String mStringType;
+    private LoadingDialog mLoadingDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,9 +74,17 @@ public abstract class TitleBarActivity extends BaseCompatActivity {
     }
 
     protected void initTitle(TextView title) {
+        final String t = getCustomTitle();
+        if (!TextUtils.isEmpty(t)) {
+            mTitle = t;
+        }
         if (!TextUtils.isEmpty(mTitle)) {
             title.setText(mTitle);
         }
+    }
+
+    protected String getCustomTitle() {
+        return "";
     }
 
     public void showLoadingDialog() {

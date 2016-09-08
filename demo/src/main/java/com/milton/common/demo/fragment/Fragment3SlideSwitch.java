@@ -1,7 +1,6 @@
 
 package com.milton.common.demo.fragment;
 
-import android.view.View;
 import android.widget.TextView;
 
 import com.milton.common.demo.R;

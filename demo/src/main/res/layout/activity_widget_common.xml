@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/activity_bg_color"
     android:orientation="vertical"
-    tools:context="com.milton.common.demo.activity.widget.WidgetCommonActivity">
+    tools:context=".activity.CommonActivity">
 
     <include layout="@layout/layout_header_opaque" />
 

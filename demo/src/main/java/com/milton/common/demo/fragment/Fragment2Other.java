@@ -1,6 +1,7 @@
 
 package com.milton.common.demo.fragment;
 
+import com.milton.common.demo.activity.other.PhotoPickerActivity;
 import com.milton.common.demo.activity.other.SilentInstallActivity;
 import com.milton.common.demo.activity.other.UpdateActivity;
 
@@ -9,6 +10,7 @@ public class Fragment2Other extends Fragment2Base {
         return new Class[]{
                 SilentInstallActivity.class,
                 UpdateActivity.class,
+                PhotoPickerActivity.class,
         };
     }
 
@@ -16,6 +18,7 @@ public class Fragment2Other extends Fragment2Base {
         return new String[]{
                 "SilentInstallActivity",
                 "UpdateActivity",
+                "PhotoPickerActivity",
         };
     }
 
