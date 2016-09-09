@@ -219,6 +219,10 @@
             android:name="com.milton.common.update.DownloadService"
             android:exported="true" />
         <!-- Jni End -->
+        <!--Widget Begin-->
+        <activity android:name=".activity.widget.SimpleUseActivity" />
+        <activity android:name=".activity.widget.ViewPagerUseActivity" />
+        <!--Widget End-->
         <!-- Push Begin -->
         <activity android:name=".activity.push.XGPushActivity" />
         <activity android:name=".activity.push.JPushActivity" />

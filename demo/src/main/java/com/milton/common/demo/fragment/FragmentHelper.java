@@ -14,6 +14,8 @@ public class FragmentHelper {
     public final static String WIDGET_SMOOTH_ROUND_PROGRESS_BAR = "SmoothRoundProgressBar";
     public final static String WIDGET_MIXTURE_TEXT_VIEW = "MixtureTextView";
     public final static String WIDGET_STICKY_NAV_LAYOUT = "StickyNavLayout";
+    public final static String WIDGET_COLOR_TRACK_VIEW = "ColorTrackView";
+    public final static String WIDGET_COLOR_IMAGE_VIEW = "ColorImageView";
 
     public static Fragment generateFragment(String type) {
         Fragment fragment = null;
@@ -35,6 +37,12 @@ public class FragmentHelper {
                 break;
             case WIDGET_STICKY_NAV_LAYOUT:
                 fragment = new Fragment3StickyNavLayout();
+                break;
+            case WIDGET_COLOR_TRACK_VIEW:
+                fragment = new Fragment3ColorTrackView();
+                break;
+            case WIDGET_COLOR_IMAGE_VIEW:
+                fragment = generateCommonFragment(R.layout.fragment3_color_image_view);
                 break;
             default:
                 break;
