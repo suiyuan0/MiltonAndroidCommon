@@ -10,7 +10,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 
 import com.milton.common.demo.R;
-import com.milton.common.util.ViewUtil;
+import com.milton.common.util.ViewUtils;
 
 public class ImageLoaderBaseAdaper extends BaseAdapter {
     private String mData[];
@@ -48,7 +48,7 @@ public class ImageLoaderBaseAdaper extends BaseAdapter {
                 convertView = mInflater.inflate(R.layout.griditem_image_loader_base, parent, false);
             }
         }
-        ImageView thumnailView = ViewUtil.getAdapterView(convertView, R.id.image);
+        ImageView thumnailView = ViewUtils.getAdapterView(convertView, R.id.image);
         // thumnailView.setImageResource(R.drawable.ic_drawer_mobile);
         initImageView(mData[position], thumnailView);
         Log.e("milton", "convertView = " + convertView);

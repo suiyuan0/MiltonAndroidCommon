@@ -19,7 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.milton.common.demo.R;
-import com.milton.common.util.StringUtil;
+import com.milton.common.util.StringUtils;
 
 /** 注册界面activity */
 public class RegisterActivity extends Activity implements android.view.View.OnClickListener {
@@ -121,9 +121,9 @@ public class RegisterActivity extends Activity implements android.view.View.OnCl
                 String mobiles = et_mobileNo.getText().toString();
                 if (chk_agree.isChecked() == false)// 若没勾选checkbox无法后续操作
                     Toast.makeText(this, "请确认是否已经阅读《腾讯QQ服务条款》", Toast.LENGTH_LONG).show();
-                if (StringUtil.isMobileNO(mobiles) == false)// 对手机号码严格验证，参见工具类中的正则表达式
+                if (StringUtils.isMobileNO(mobiles) == false)// 对手机号码严格验证，参见工具类中的正则表达式
                     Toast.makeText(this, "正确填写手机号，我们将向您发送一条验证码短信", Toast.LENGTH_LONG).show();
-                if (StringUtil.isMobileNO(mobiles) == true && chk_agree.isChecked() == true) {
+                if (StringUtils.isMobileNO(mobiles) == true && chk_agree.isChecked() == true) {
                     // 当勾选中且号码正确，点击进行下一步操作
                     Toast.makeText(this, "已经向您手机发送验证码，请查看", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(RegisterActivity.this, RegisterConfirmActivity.class);

@@ -4,7 +4,7 @@ package com.milton.common.demo.activity.util;
 import android.view.View;
 import android.widget.AdapterView;
 
-import com.milton.common.util.StringUtil;
+import com.milton.common.util.StringUtils;
 import com.milton.common.util.ToastUtil;
 
 public class UtilsStringActivity extends UtilsBaseActivity {
@@ -22,11 +22,11 @@ public class UtilsStringActivity extends UtilsBaseActivity {
         switch (position) {
             case 0:
                 String text = "hi,你hao ";
-                ToastUtil.showShort(this, text + " contain chinese = " + StringUtil.checkChinese(text));
+                ToastUtil.showShort(this, text + " contain chinese = " + StringUtils.checkChinese(text));
                 break;
             case 1:
                 String text2 = "昵称 ";
-                ToastUtil.showShort(this, text2 + " is legal = " + StringUtil.checkNickname(text2));
+                ToastUtil.showShort(this, text2 + " is legal = " + StringUtils.checkNickname(text2));
                 break;
             case 2:
 

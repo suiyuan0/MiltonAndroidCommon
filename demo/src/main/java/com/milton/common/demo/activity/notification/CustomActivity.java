@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.milton.common.demo.R;
 import com.milton.common.demo.activity.util.UtilsBaseActivity;
+import com.milton.common.util.ApplicationUtil;
 import com.milton.common.util.ContextUtil;
 
 public class CustomActivity extends UtilsBaseActivity {
@@ -164,7 +165,7 @@ public class CustomActivity extends UtilsBaseActivity {
         mRemoteViews.setTextViewText(R.id.tv_custom_song_singer, "周杰伦");
         mRemoteViews.setTextViewText(R.id.tv_custom_song_name, "七里香");
         // 如果版本号低于（3。0），那么不显示按钮
-        if (ContextUtil.getSystemVersion() <= 9) {
+        if (ApplicationUtil.getSystemVersion() <= 9) {
             mRemoteViews.setViewVisibility(R.id.ll_custom_button, View.GONE);
         } else {
             mRemoteViews.setViewVisibility(R.id.ll_custom_button, View.VISIBLE);
