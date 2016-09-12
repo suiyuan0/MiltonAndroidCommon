@@ -3,6 +3,7 @@ package com.milton.common.demo.fragment;
 
 import com.milton.common.demo.activity.other.PhotoPickerActivity;
 import com.milton.common.demo.activity.other.SilentInstallActivity;
+import com.milton.common.demo.activity.other.UCropDemoActivity;
 import com.milton.common.demo.activity.other.UpdateActivity;
 
 public class Fragment2Other extends Fragment2Base {
@@ -11,6 +12,7 @@ public class Fragment2Other extends Fragment2Base {
                 SilentInstallActivity.class,
                 UpdateActivity.class,
                 PhotoPickerActivity.class,
+                UCropDemoActivity.class,
         };
     }
 
@@ -19,6 +21,7 @@ public class Fragment2Other extends Fragment2Base {
                 "SilentInstallActivity",
                 "UpdateActivity",
                 "PhotoPickerActivity",
+                "UCropDemoActivity",
         };
     }
 

@@ -211,6 +211,12 @@
         <activity
             android:name="me.iwf.photopicker.PhotoPagerActivity"
             android:theme="@style/PhotoPickerTheme" />
+        <activity android:name=".activity.other.UCropDemoActivity" />
+        <activity android:name=".activity.other.UCropResultActivity" />
+        <activity
+            android:name="com.yalantis.ucrop.UCropActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <!-- Other End -->
         <!-- Jni Begin -->
         <activity android:name=".activity.jni.HelloJniActivity" />

@@ -5,6 +5,7 @@ include ':jni'
 include ':okhttputils'
 include ':sample-okhttp'
 include ':PhotoPicker'
+include ':ucrop'
 //include ':ipcjni'
 //include ':testipcjni'
 

@@ -80,4 +80,5 @@ dependencies {
     compile 'com.zhy:base-adapter:2.0.0'
     compile project(':jni')
     compile project(':PhotoPicker')
+    compile project(':ucrop')
 }

@@ -16,6 +16,7 @@
             <option value="$PROJECT_DIR$/okhttp" />
             <option value="$PROJECT_DIR$/okhttputils" />
             <option value="$PROJECT_DIR$/sample-okhttp" />
+            <option value="$PROJECT_DIR$/ucrop" />
           </set>
         </option>
         <option name="myModules">
@@ -28,6 +29,7 @@
             <option value="$PROJECT_DIR$/okhttp" />
             <option value="$PROJECT_DIR$/okhttputils" />
             <option value="$PROJECT_DIR$/sample-okhttp" />
+            <option value="$PROJECT_DIR$/ucrop" />
           </set>
         </option>
       </GradleProjectSettings>
