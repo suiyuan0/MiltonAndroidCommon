@@ -25,11 +25,12 @@ public class TabViewPagerAdapter extends FragmentPagerAdapter {
     private final static String OTHER = "Other";
     private final static String JNI = "Jni";
     private final static String PUSH = "Push";
+    private final static String LEANCLOUD = "LeanCloud";
     //    private String mTabTitle[] = new String[]{
 //            "Sliding", "Dialog","ListView", "Activity", "ImageLoader", "Socket", "Drawable", "View", "Animation", "Util", "Preference", "Html5", "MultiMedia", "Notification", "Widget", "Other"
 //    };
     private String mTabTitle[] = new String[]{
-            PUSH, JNI, SLIDING, DIALOG, LISTVIEW, ACTIVITY, IMAGELOADER, SOCKET, DRAWABLE, VIEW, ANIMATION, UTIL, PREFERENCE, HTML5, MUTILMEDIA, NOTIFICATION, WIDGET, OTHER
+            LEANCLOUD, PUSH, JNI, SLIDING, DIALOG, LISTVIEW, ACTIVITY, IMAGELOADER, SOCKET, DRAWABLE, VIEW, ANIMATION, UTIL, PREFERENCE, HTML5, MUTILMEDIA, NOTIFICATION, WIDGET, OTHER
     };
 //    private Context mContext;
 
@@ -61,7 +62,7 @@ public class TabViewPagerAdapter extends FragmentPagerAdapter {
         } else if (checkName(VIEW, position)) {
             return CommonFragment.newInstance(position);
         } else if (checkName(ANIMATION, position)) {
-            return CommonFragment.newInstance(position);
+            return new Fragment2Animation();
         } else if (checkName(UTIL, position)) {
             return new Fragment2Util();
         } else if (checkName(PREFERENCE, position)) {
@@ -80,6 +81,8 @@ public class TabViewPagerAdapter extends FragmentPagerAdapter {
             return new Fragment2Jni();
         } else if (checkName(PUSH, position)) {
             return new Fragment2Push();
+        } else if (checkName(LEANCLOUD, position)) {
+            return new Fragment2LeanCloud();
         } else {
             return CommonFragment.newInstance(position);
         }

@@ -1,0 +1,131 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.1"
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+
+}
+
+//apply plugin: 'com.android.library'
+//apply plugin: 'com.github.dcendents.android-maven'
+//apply plugin: 'com.jfrog.bintray'
+//
+//dependencies {
+//
+//}
+//
+//Properties properties = new Properties()
+//final def bintrayPropertiesFile = project.rootProject.file('bintray.properties')
+//if (bintrayPropertiesFile.exists()) properties.load(bintrayPropertiesFile.newDataInputStream())
+//
+//android {
+//    compileSdkVersion Integer.parseInt(project.ANDROID_BUILD_SDK_VERSION)
+//    buildToolsVersion project.ANDROID_BUILD_TOOLS_VERSION
+//
+//    defaultConfig {
+//        minSdkVersion 4
+//        targetSdkVersion Integer.parseInt(project.ANDROID_BUILD_TARGET_SDK_VERSION)
+//    }
+//}
+
+//bintray {
+//    user = properties.getProperty("bintray.user")
+//    key = properties.getProperty("bintray.apikey")
+//
+//    configurations = ['archives']
+//    pkg {
+//        repo = "maven"
+//        name = project.POM_ARTIFACT_ID
+//        desc = project.POM_DESCRIPTION
+//        websiteUrl = project.POM_URL
+//        vcsUrl = project.POM_SCM_URL
+//        licenses = ["Apache-2.0"]
+//        publish = true
+//
+//        version {
+//            gpg {
+//                sign = true
+//                passphrase = properties.getProperty("bintray.gpg.passphrase")
+//            }
+//            mavenCentralSync {
+//                sync = true
+//                user = properties.getProperty("oss.userToken")
+//                password = properties.getProperty("oss.userTokenValue")
+//                close = '1'
+//            }
+//        }
+//    }
+//}
+
+//install {
+//    repositories.mavenInstaller {
+//        // This generates POM.xml with proper parameters
+//        pom {
+//            project {
+//                packaging 'aar'
+//
+//                // Add your description here
+//                description project.POM_DESCRIPTION
+//                name project.POM_NAME
+//                url project.POM_URL
+//
+//                // Set your license
+//                licenses {
+//                    license {
+//                        name project.POM_LICENCE_NAME
+//                        url project.POM_LICENCE_URL
+//                    }
+//                }
+//                developers {
+//                    developer {
+//                        id project.POM_DEVELOPER_ID
+//                        name project.POM_DEVELOPER_NAME
+//                    }
+//                }
+//                scm {
+//                    connection project.POM_SCM_URL
+//                    developerConnection project.POM_SCM_CONNECTION
+//                    url project.POM_URL
+//
+//                }
+//            }
+//        }
+//    }
+//}
+//
+//task sourcesJar(type: Jar) {
+//    from android.sourceSets.main.java.srcDirs
+//    classifier = 'sources'
+//}
+//
+//task javadoc(type: Javadoc) {
+//    source = android.sourceSets.main.java.srcDirs
+//    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+//}
+//
+//task javadocJar(type: Jar, dependsOn: javadoc) {
+//    classifier = 'javadoc'
+//    from javadoc.destinationDir
+//}
+//
+//artifacts {
+//    archives javadocJar
+//    archives sourcesJar
+//}

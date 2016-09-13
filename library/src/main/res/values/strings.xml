@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+    <string name="name">name</string>
+    <string name="delay_time">delay time</string>
+    <string name="sure">确定</string>
     <string name="app_name">MiltomCommon</string>
     <string name="hello_world">Hello world!</string>
     <string name="screen_resolution">xxh</string>

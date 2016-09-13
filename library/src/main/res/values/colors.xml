@@ -42,4 +42,10 @@
     <!--custom start-->
     <color name="header_background">#FFFFFF</color>
     <!--custom end-->
+    <color name="activity_background">#F2F2F2</color>
+    <color name="base_color_blue">#1770D7</color>
+    <color name="text_color_hint">#C7C7C7</color>
+    <color name="btn_background_orange">#EC4D1A</color>
+    <color name="btn_background_blue">#1770D7</color>
+    <color name="btn_background_disable">#CACACA</color>
 </resources>

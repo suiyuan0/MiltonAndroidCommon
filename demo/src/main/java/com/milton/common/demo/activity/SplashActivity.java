@@ -8,7 +8,12 @@ import android.support.v4.app.FragmentActivity;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.avos.avoscloud.AVAnalytics;
+import com.avos.avoscloud.AVException;
+import com.avos.avoscloud.AVObject;
+import com.avos.avoscloud.SaveCallback;
 import com.milton.common.demo.R;
+import com.milton.common.demo.av.Student;
 import com.milton.common.demo.eventbus.BaseEvent;
 import com.milton.common.util.LogUtil;
 import com.milton.common.util.PreferenceConstants;
@@ -59,6 +64,7 @@ public class SplashActivity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
+        AVAnalytics.trackAppOpened(getIntent());
         setContentView(R.layout.splash);
         // 判断是否从推送通知栏打开的
         XGPushClickedResult message = XGPushManager.onActivityStarted(this);
@@ -110,7 +116,7 @@ public class SplashActivity extends FragmentActivity {
         }
     }
 
-//    private void log2() {
+    //    private void log2() {
 //        Log.e("milton11", "formatShowTime2");
 //        for (int i = 0; i < times.length; i++) {
 //            Log.e("milton11", times[i] + " -> " + TimeUtil.formatShowTime2(times[i]));
@@ -124,9 +130,4 @@ public class SplashActivity extends FragmentActivity {
 //        }
 //    }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-    }
 }

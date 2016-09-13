@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string name="select_all">全选</string>
+    <string name="zone_alarm_fire">Fire alarm</string>
+    <string name="zone_alarm_help">Help</string>
+    <string name="zone_alarm_gas">Gas leak</string>
+    <string name="zone_alarm_thief">Thief</string>
+    <string name="zone_alarm_emergency">Emergency</string>
+
     <string name="subscribe_my_category">我的频道</string>
     <string name="subscribe_manager_category_info_2">单击增删频道，长按拖拽排序</string>
     <string name="subscribe_more_category">更多频道</string>
@@ -109,4 +116,12 @@
     <string name="toast_cannot_retrieve_cropped_image">Cannot retrieve cropped image</string>
     <string name="toast_unexpected_error">Unexpected error</string>
     <!--UCrop end-->
+    <string name="pattern">紫陌红尘，蓦然{回首}。多少的{春花秋月};多少的{逝水沉香};多少的{海誓山盟}，如沿途的风景{花开花谢}。人世间的情缘{触痛了}多少无言的{感慨}，{情深缘浅}的风吹散了多少{相聚离散}。花开是有情，花落是无意。来者是{萍水相逢}，去者是{江湖相忘}。缘起时，我在{人群}中看到你。缘灭时，你{消失}在人群中。</string>
+    <string name="title_activity_first">FirstActivity</string>
+    <string name="title_activity_second">SecondActivity</string>
+    <string name="title_activity_third">ThirdActivity</string>
+    <string name="title_activity_door">DoorActivity</string>
+    <string name="agreement">I agree the terms and conditions.</string>
+    <string name="clear_pad">Clear Pad</string>
+    <string name="save_signature">Save Signature</string>
 </resources>

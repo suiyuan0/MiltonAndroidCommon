@@ -1,34 +1,23 @@
 
 package com.milton.common.demo.fragment;
 
-import com.milton.common.demo.activity.util.UtilsContextActivity;
-import com.milton.common.demo.activity.util.UtilsNetActivity;
-import com.milton.common.demo.activity.util.UtilsNotificationActivity;
-import com.milton.common.demo.activity.util.UtilsResourceActivity;
-import com.milton.common.demo.activity.util.UtilsScreenActivity;
-import com.milton.common.demo.activity.util.UtilsStringActivity;
 
 public class Fragment2Util extends Fragment2Base {
-    public Class[] getItemClass() {
-        return new Class[] {
-                UtilsScreenActivity.class,
-                UtilsContextActivity.class,
-                UtilsResourceActivity.class,
-                UtilsStringActivity.class,
-                UtilsNetActivity.class,
-                UtilsNotificationActivity.class,
-        };
+    @Override
+    public boolean isActivity() {
+        return false;
     }
 
-    public String[] getItemNames() {
-        return new String[] {
-                "ScreenUtil",
-                "ContextUtil",
-                "ResourceUtil",
-                "StringUtil",
-                "NetUtil",
-                "NotificationUtil",
+    @Override
+    public String[] getItemTypes() {
+        return new String[]{
+                FragmentHelper.UTIL_SCREEN,
+                FragmentHelper.UTIL_CONTEXT,
+                FragmentHelper.UTIL_RESOURCE,
+                FragmentHelper.UTIL_STRING,
+                FragmentHelper.UTIL_NET,
+                FragmentHelper.UTIL_NOTIFICATION,
+                FragmentHelper.UTIL_PHRASE,
         };
     }
-
 }

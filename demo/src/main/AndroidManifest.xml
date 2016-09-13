@@ -128,56 +128,6 @@
 
 
         <!-- Util Activities  begin -->
-        <activity android:name=".activity.util.UtilsActivity" />
-        <activity
-            android:name=".activity.util.UtilsScreenActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/ActivityTheme">
-            <intent-filter>
-                <action android:name="android.intent.action.UtilsActivity" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".activity.util.UtilsContextActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/ActivityTheme">
-            <intent-filter>
-                <action android:name="android.intent.action.UtilsActivity" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".activity.util.UtilsResourceActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/ActivityTheme">
-            <intent-filter>
-                <action android:name="android.intent.action.UtilsActivity" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".activity.util.UtilsStringActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/ActivityTheme">
-            <intent-filter>
-                <action android:name="android.intent.action.UtilsActivity" />
-            </intent-filter>
-        </activity>
-        <!-- Util Activities  end -->
-        <activity
-            android:name=".activity.util.UtilsNetActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/ActivityTheme">
-            <intent-filter>
-                <action android:name="android.intent.action.UtilsActivity" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".activity.util.UtilsNotificationActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/ActivityTheme">
-            <intent-filter>
-                <action android:name="android.intent.action.UtilsActivity" />
-            </intent-filter>
-        </activity>
         <activity
             android:name=".activity.util.NotificationActivity"
             android:screenOrientation="portrait"
@@ -186,6 +136,7 @@
                 <action android:name="android.intent.action.UtilsActivity" />
             </intent-filter>
         </activity>
+        <!-- Util Activities  end -->
         <!-- Other Begin -->
         <activity android:name=".activity.other.SilentInstallActivity" />
 
@@ -336,7 +287,23 @@
         <meta-data
             android:name="XG_V2_ACCESS_KEY"
             android:value="AVW3XC12F37A" />
-
+        <!-- XG Push end -->
+        <!--animation start-->
+        <activity android:name=".activity.animations.AnimationActivity" />
+        <activity
+            android:name=".activity.animations.SecondActivity"
+            android:label="@string/title_activity_second"
+            android:theme="@style/AppTheme.Transparent"></activity>
+        <activity
+            android:name=".activity.animations.DoorActivity"
+            android:label="@string/title_activity_door"
+            android:theme="@style/AppTheme.Transparent"></activity>
+        <activity
+            android:name=".activity.animations.ThirdActivity"
+            android:label="@string/title_activity_third"
+            android:theme="@style/AppTheme.Transparent"
+            android:windowSoftInputMode="stateHidden"></activity>
+        <!--animation end-->
         <activity android:name=".activity.sliding.SwipeMenuActivity" />
         <activity
             android:name=".activity.CommonActivity"

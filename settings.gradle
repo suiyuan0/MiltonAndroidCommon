@@ -6,6 +6,7 @@ include ':okhttputils'
 include ':sample-okhttp'
 include ':PhotoPicker'
 include ':ucrop'
+include ':signature-pad'
 //include ':ipcjni'
 //include ':testipcjni'
 

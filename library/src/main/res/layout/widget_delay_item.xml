@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_height_device_add">
+
+        <TextView
+            android:id="@+id/tv_delay"
+            style="@style/list_item_text_style"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/name" />
+
+        <CheckBox
+            android:id="@+id/cb_delay"
+            style="@style/checkbox_switch_style" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_time_selector"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <View
+            android:id="@+id/divider"
+            style="@style/divider_margin_style" />
+
+        <com.honeywell.cube.widgets.TimeSelectorItem
+            android:id="@+id/tsi_time_selector"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/item_height_device_add" />
+
+    </LinearLayout>
+
+</merge>

@@ -1,0 +1,109 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/photo1" />
+
+    <RadioGroup
+        android:id="@+id/door_options"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <RadioButton
+            android:id="@+id/vertical_door"
+            style="@style/DefaultText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="vertical door" />
+
+        <RadioButton
+            android:id="@+id/horizontal_door"
+            style="@style/DefaultText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="horizontal door" />
+
+    </RadioGroup>
+
+    <View
+        android:id="@+id/separator"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:layout_below="@+id/open_door"
+        android:background="@android:color/white" />
+
+    <Button
+        android:id="@+id/open_door"
+        style="@style/DefaultText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/door_options"
+        android:background="@drawable/selector_button"
+        android:text="open door" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/next"
+        android:layout_below="@+id/separator"
+        android:padding="10dp">
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/random_anim"
+                style="@style/DefaultText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="random animation" />
+
+            <RadioButton
+                android:id="@+id/wave_tl_anim"
+                style="@style/DefaultText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="wave top-left animation" />
+
+            <RadioButton
+                android:id="@+id/wave_br_anim"
+                style="@style/DefaultText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="wave bottom-right animation" />
+
+            <RadioButton
+                android:id="@+id/wave_tr_anim"
+                style="@style/DefaultText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="wave top-right animation" />
+
+            <RadioButton
+                android:id="@+id/wave_bl_anim"
+                style="@style/DefaultText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="wave bottom-left animation" />
+        </RadioGroup>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/next"
+        style="@style/DefaultText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/selector_button"
+        android:text="next" />
+
+</RelativeLayout>

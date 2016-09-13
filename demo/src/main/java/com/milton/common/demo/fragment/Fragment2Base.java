@@ -17,7 +17,7 @@ import com.milton.common.demo.activity.sliding.SlidingMenuActivity;
 import com.milton.common.demo.activity.CommonActivity;
 import com.milton.common.util.Constants;
 
-public class Fragment2Base extends Fragment implements AdapterView.OnItemClickListener {
+public class Fragment2Base extends BaseFragment implements AdapterView.OnItemClickListener {
     private ListView mList;
     private Class mClassList[];
     private String mTypeList[];
@@ -38,23 +38,7 @@ public class Fragment2Base extends Fragment implements AdapterView.OnItemClickLi
     }
 
     public String[] getItemNames() {
-        return new String[]{
-                "DrawerLayout",
-                "SlidingMenu",
-        };
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        mClassList = getItemClass();
-        mTypeList = getItemTypes();
-        mTitleList = getItemNames();
-        View root = inflater.inflate(R.layout.activity_util, null);
-        mList = (ListView) root.findViewById(R.id.util_list);
-        mList.setOnItemClickListener(this);
-        mList.setDivider(null);
-        mList.setAdapter(new OneLineTextListAdapter(mTitleList));
-        return root;
+        return getItemTypes();
     }
 
     @Override
@@ -73,4 +57,17 @@ public class Fragment2Base extends Fragment implements AdapterView.OnItemClickLi
         return true;
     }
 
+    protected int getContentView() {
+        return R.layout.activity_util;
+    }
+
+    protected void initView() {
+        mClassList = getItemClass();
+        mTypeList = getItemTypes();
+        mTitleList = getItemNames();
+        mList = (ListView) rootView.findViewById(R.id.util_list);
+        mList.setOnItemClickListener(this);
+        mList.setDivider(null);
+        mList.setAdapter(new OneLineTextListAdapter(mTitleList));
+    }
 }

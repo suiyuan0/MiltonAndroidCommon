@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <CheckBox
+        android:id="@+id/cb_checked"
+        style="@style/checkbox_circle_check_style"
+        android:layout_marginLeft="10dp"
+        android:clickable="false" />
+
+    <TextView
+        android:id="@+id/tv_name"
+        style="@style/list_item_text_style"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/cb_checked"
+        android:text="@string/name" />
+
+
+</merge>

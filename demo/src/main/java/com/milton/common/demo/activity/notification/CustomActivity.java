@@ -18,7 +18,6 @@ import android.widget.Toast;
 import com.milton.common.demo.R;
 import com.milton.common.demo.activity.util.UtilsBaseActivity;
 import com.milton.common.util.ApplicationUtil;
-import com.milton.common.util.ContextUtil;
 
 public class CustomActivity extends UtilsBaseActivity {
     /**

@@ -32,4 +32,10 @@
     <!--photo picker start-->
     <dimen name="actionBarSize">44dip</dimen>
     <!--photo picker end-->
+
+    <dimen name="sliding_menu_icon_size">20dp</dimen>
+    <dimen name="item_height_device_add">50dp</dimen>
+    <dimen name="item_primary_text_size">16sp</dimen>
+    <dimen name="item_secondary_text_size">12sp</dimen>
+    <dimen name="icon_margin">10dp</dimen>
 </resources>

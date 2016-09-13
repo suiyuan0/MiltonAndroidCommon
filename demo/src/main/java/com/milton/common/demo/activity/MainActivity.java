@@ -23,6 +23,7 @@ import android.widget.ListView;
 import android.widget.TabHost.TabSpec;
 import android.widget.TextView;
 
+import com.avos.avoscloud.AVAnalytics;
 import com.milton.common.demo.R;
 import com.milton.common.demo.Shakespeare;
 import com.milton.common.demo.eventbus.BaseEvent;
@@ -79,6 +80,7 @@ public class MainActivity extends FragmentActivity implements android.widget.Tab
     private String mTextArray[] = {
             "首页", "消息", "好友", "搜索", "更多"
     };
+    private long firstTime = 0;
 
     @Override
     protected void onNewIntent(Intent intent) {
@@ -92,6 +94,7 @@ public class MainActivity extends FragmentActivity implements android.widget.Tab
      */
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        AVAnalytics.trackAppOpened(getIntent());
         setContentView(R.layout.activity_main);
         EventBus.getDefault().register(this);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -199,6 +202,55 @@ public class MainActivity extends FragmentActivity implements android.widget.Tab
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         mDrawerToggle.onConfigurationChanged(newConfig);
+    }
+
+    @Override
+    public boolean onKeyUp(int keyCode, KeyEvent event) {
+        switch (keyCode) {
+            case KeyEvent.KEYCODE_BACK:
+                long secondTime = System.currentTimeMillis();
+                if (secondTime - firstTime > 2000) {
+                    ToastUtil.showShort(MainActivity.this, R.string.double_click_exit, true);
+                    firstTime = secondTime;
+                    return true;
+                } else {
+                    System.exit(0);
+                }
+                break;
+        }
+        return super.onKeyUp(keyCode, event);
+    }
+
+    @Override
+    protected void onDestroy() {
+        LogUtil.e("alinmi22", "onDestroy");
+        EventBus.getDefault().unregister(this);
+        super.onDestroy();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+    }
+
+    public void onEventMainThread(BaseEvent event) {
+        ToastUtil.showShort(this, event.getResult());
+//        if (event instanceof CubeBasicEvent) {
+//            final CubeBasicEvent cubeBasicEvent = (CubeBasicEvent) event;
+//            if (cubeBasicEvent.getType() == CubeEvents.CubeBasicEventType.TIME_OUT) {
+////                ToastUtil.showShort(this, cubeBasicEvent.getMessage());
+//                dismissLoadingDialog();
+//            }else if(cubeBasicEvent.getType() == CubeEvents.CubeBasicEventType.CONNECTING_LOST) {
+//                finish();
+//            }
+//        }
     }
 
     /**
@@ -319,57 +371,6 @@ public class MainActivity extends FragmentActivity implements android.widget.Tab
         public void setTitle(CharSequence title) {
             mTitle = title;
         }
-    }
-
-    private long firstTime = 0;
-
-    @Override
-    public boolean onKeyUp(int keyCode, KeyEvent event) {
-        switch (keyCode) {
-            case KeyEvent.KEYCODE_BACK:
-                long secondTime = System.currentTimeMillis();
-                if (secondTime - firstTime > 2000) {
-                    ToastUtil.showShort(MainActivity.this, R.string.double_click_exit, true);
-                    firstTime = secondTime;
-                    return true;
-                } else {
-                    System.exit(0);
-                }
-                break;
-        }
-        return super.onKeyUp(keyCode, event);
-    }
-
-    @Override
-    protected void onDestroy() {
-        LogUtil.e("alinmi22", "onDestroy");
-        EventBus.getDefault().unregister(this);
-        super.onDestroy();
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-
-    }
-
-    public void onEventMainThread(BaseEvent event) {
-        ToastUtil.showShort(this, event.getResult());
-//        if (event instanceof CubeBasicEvent) {
-//            final CubeBasicEvent cubeBasicEvent = (CubeBasicEvent) event;
-//            if (cubeBasicEvent.getType() == CubeEvents.CubeBasicEventType.TIME_OUT) {
-////                ToastUtil.showShort(this, cubeBasicEvent.getMessage());
-//                dismissLoadingDialog();
-//            }else if(cubeBasicEvent.getType() == CubeEvents.CubeBasicEventType.CONNECTING_LOST) {
-//                finish();
-//            }
-//        }
     }
 
 }

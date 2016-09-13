@@ -16,6 +16,17 @@ public class FragmentHelper {
     public final static String WIDGET_STICKY_NAV_LAYOUT = "StickyNavLayout";
     public final static String WIDGET_COLOR_TRACK_VIEW = "ColorTrackView";
     public final static String WIDGET_COLOR_IMAGE_VIEW = "ColorImageView";
+    public final static String WIDGET_SIGNATURE_PAD = "SignaturePad";
+
+    public final static String UTIL_SCREEN = "ScreenUtil";
+    public final static String UTIL_CONTEXT = "ContextUtil";
+    public final static String UTIL_RESOURCE = "ResourceUtil";
+    public final static String UTIL_STRING = "StringUtil";
+    public final static String UTIL_NET = "NetUtil";
+    public final static String UTIL_NOTIFICATION = "NotificationUtil";
+    public final static String UTIL_PHRASE = "PhraseUtil";
+
+    public final static String FOUR_Util_COLORPHRASE = "ColorPhrase";
 
     public static Fragment generateFragment(String type) {
         Fragment fragment = null;
@@ -43,6 +54,33 @@ public class FragmentHelper {
                 break;
             case WIDGET_COLOR_IMAGE_VIEW:
                 fragment = generateCommonFragment(R.layout.fragment3_color_image_view);
+                break;
+            case WIDGET_SIGNATURE_PAD:
+                fragment = new Fragment3SignaturePad();
+                break;
+            case UTIL_SCREEN:
+                fragment = new Fragment3UtilScreen();
+                break;
+            case UTIL_CONTEXT:
+                fragment = new Fragment3UtilContext();
+                break;
+            case UTIL_RESOURCE:
+                fragment = new Fragment3UtilResource();
+                break;
+            case UTIL_STRING:
+                fragment = new Fragment3UtilString();
+                break;
+            case UTIL_NET:
+                fragment = new Fragment3UtilNet();
+                break;
+            case UTIL_NOTIFICATION:
+                fragment = new Fragment3UtilNotification();
+                break;
+            case UTIL_PHRASE:
+                fragment = new Fragment3UtilPhrase();
+                break;
+            case FOUR_Util_COLORPHRASE:
+                fragment = new Fragment4UtilColorPhrase();
                 break;
             default:
                 break;

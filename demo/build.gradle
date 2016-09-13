@@ -81,4 +81,5 @@ dependencies {
     compile project(':jni')
     compile project(':PhotoPicker')
     compile project(':ucrop')
+    compile project(':signature-pad')
 }

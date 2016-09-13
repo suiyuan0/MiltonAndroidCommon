@@ -1,0 +1,37 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/popup_window_background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <com.milton.common.widget.common.CheckItem
+            android:id="@+id/ci_select_all"
+            style="@style/common_item_style" />
+
+        <include layout="@layout/layout_divider" />
+
+        <com.milton.common.widget.MaxHeightListView
+            android:id="@+id/lv_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:divider="@null"
+            android:listSelector="@color/transparent"
+            android:scrollbars="none" />
+
+        <include layout="@layout/layout_divider" />
+
+        <Button
+            android:id="@+id/btn_sure"
+            style="@style/bottom_button_style"
+            android:layout_margin="10dp"
+            android:text="@string/sure" />
+
+    </LinearLayout>
+</FrameLayout>
