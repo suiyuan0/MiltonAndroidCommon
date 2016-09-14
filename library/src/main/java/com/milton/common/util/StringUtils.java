@@ -45,9 +45,63 @@ public class StringUtils {
      * @return
      */
     public static boolean isMobileNO(String mobiles) {
-        Pattern p = Pattern.compile("^((13[0-9])|(15[^4,\\D])|(18[0,5-9]))\\d{8}$");
-        Matcher m = p.matcher(mobiles);
+        return isMatch("^((13[0-9])|(15[^4,\\D])|(18[0,5-9]))\\d{8}$", mobiles);
+    }
+
+    public static boolean isMatch(String pattern, String content) {
+        Pattern p = Pattern.compile(pattern);
+        Matcher m = p.matcher(content);
         return m.matches();
+    }
+
+    /**
+     * 电话号码
+     *
+     * @param tel 要验证的电话号码
+     * @return
+     */
+    public static boolean isTel(String tel) {
+        return isMatch(Constants.REGEX_TEL, tel);
+    }
+
+    /**
+     * isURL
+     *
+     * @param url
+     * @return
+     */
+    public static boolean isUrl(String url) {
+        return isMatch(Constants.REGEX_URL, url);
+    }
+
+    /**
+     * 身份证号码18位
+     *
+     * @param idcard
+     * @return
+     */
+    public static boolean isIDCard18(String idcard) {
+        return isMatch(Constants.REGEX_IDCARD18, idcard);
+    }
+
+    /**
+     * 汉字
+     *
+     * @param chz
+     * @return
+     */
+    public static boolean isChz(String chz) {
+        return isMatch(Constants.REGEX_CHZ, chz);
+    }
+
+    /**
+     * 用户名
+     *
+     * @param username
+     * @return
+     */
+    public static boolean isUsername(String username) {
+        return isMatch(Constants.REGEX_USERNAME, username);
     }
 
     /**
@@ -57,10 +111,18 @@ public class StringUtils {
      * @return
      */
     public static boolean isEmail(String email) {
-        String str = "^([a-zA-Z0-9]*[-_]?[a-zA-Z0-9]+)*@([a-zA-Z0-9]*[-_]?[a-zA-Z0-9]+)+[\\.][A-Za-z]{2,3}([\\.][A-Za-z]{2})?$";
-        Pattern p = Pattern.compile(str);
-        Matcher m = p.matcher(email);
-        return m.matches();
+//        String str = "^([a-zA-Z0-9]*[-_]?[a-zA-Z0-9]+)*@([a-zA-Z0-9]*[-_]?[a-zA-Z0-9]+)+[\\.][A-Za-z]{2,3}([\\.][A-Za-z]{2})?$";
+        return isMatch(Constants.REGEX_EMAIL, email);
+    }
+
+    /**
+     * IP地址
+     *
+     * @param ip
+     * @return
+     */
+    public static boolean isIP(String ip) {
+        return isMatch(Constants.REGEX_IP, ip);
     }
 
     /**
@@ -685,5 +747,117 @@ public class StringUtils {
      */
     public static String checkLength(String string, int maxLength) {
         return checkLength(string, maxLength, "…");
+    }
+
+    /**
+     * 判断字符串是否为null或全为空格
+     *
+     * @param s 待校验字符串
+     * @return {@code true}: null或全空格<br> {@code false}: 不为null且不全空格
+     */
+    public static boolean isSpace(String s) {
+        return (s == null || s.trim().length() == 0);
+    }
+
+    /**
+     * null转为长度为0的字符串
+     *
+     * @param s 待转字符串
+     * @return s为null转为长度为0字符串，否则不改变
+     */
+    public static String null2Length0(String s) {
+        return s == null ? "" : s;
+    }
+
+    /**
+     * 首字母大写
+     *
+     * @param s 待转字符串
+     * @return 首字母大写字符串
+     */
+    public static String upperFirstLetter(String s) {
+        if (isEmpty(s) || !Character.isLowerCase(s.charAt(0))) {
+            return s;
+        }
+        return String.valueOf((char) (s.charAt(0) - 32)) + s.substring(1);
+    }
+
+    /**
+     * 首字母小写
+     *
+     * @param s 待转字符串
+     * @return 首字母小写字符串
+     */
+    public static String lowerFirstLetter(String s) {
+        if (isEmpty(s) || !Character.isUpperCase(s.charAt(0))) {
+            return s;
+        }
+        return String.valueOf((char) (s.charAt(0) + 32)) + s.substring(1);
+    }
+
+    /**
+     * 反转字符串
+     *
+     * @param s 待反转字符串
+     * @return 反转字符串
+     */
+    public static String reverse(String s) {
+        int len = length(s);
+        if (len <= 1) return s;
+        int mid = len >> 1;
+        char[] chars = s.toCharArray();
+        char c;
+        for (int i = 0; i < mid; ++i) {
+            c = chars[i];
+            chars[i] = chars[len - i - 1];
+            chars[len - i - 1] = c;
+        }
+        return new String(chars);
+    }
+
+    /**
+     * 转化为半角字符
+     *
+     * @param s 待转字符串
+     * @return 半角字符串
+     */
+    public static String toDBC(String s) {
+        if (isEmpty(s)) {
+            return s;
+        }
+        char[] chars = s.toCharArray();
+        for (int i = 0, len = chars.length; i < len; i++) {
+            if (chars[i] == 12288) {
+                chars[i] = ' ';
+            } else if (65281 <= chars[i] && chars[i] <= 65374) {
+                chars[i] = (char) (chars[i] - 65248);
+            } else {
+                chars[i] = chars[i];
+            }
+        }
+        return new String(chars);
+    }
+
+    /**
+     * 转化为全角字符
+     *
+     * @param s 待转字符串
+     * @return 全角字符串
+     */
+    public static String toSBC(String s) {
+        if (isEmpty(s)) {
+            return s;
+        }
+        char[] chars = s.toCharArray();
+        for (int i = 0, len = chars.length; i < len; i++) {
+            if (chars[i] == ' ') {
+                chars[i] = (char) 12288;
+            } else if (33 <= chars[i] && chars[i] <= 126) {
+                chars[i] = (char) (chars[i] + 65248);
+            } else {
+                chars[i] = chars[i];
+            }
+        }
+        return new String(chars);
     }
 }

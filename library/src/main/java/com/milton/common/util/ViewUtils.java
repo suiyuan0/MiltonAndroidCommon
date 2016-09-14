@@ -2,6 +2,8 @@
 package com.milton.common.util;
 
 import android.annotation.TargetApi;
+import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Point;
 import android.graphics.Rect;
@@ -621,5 +623,23 @@ public class ViewUtils {
     public static void zoomView(View view, float scale) {
         zoomView(view, scale, scale,
                 new Point(view.getWidth(), view.getHeight()));
+    }
+
+    /**
+     * ***********************************************************
+     * findViewById的一种更优雅的写法
+     * 原理:泛型的类型推断
+     * ***********************************************************
+     */
+    public static <T extends View> T $(Activity activity, int viewId) {
+        return (T) activity.findViewById(viewId);
+    }
+
+    public static <T extends View> T $(View view, int viewId) {
+        return (T) view.findViewById(viewId);
+    }
+
+    public static <T extends View> T $(Dialog dialog, int viewId) {
+        return (T) dialog.findViewById(viewId);
     }
 }

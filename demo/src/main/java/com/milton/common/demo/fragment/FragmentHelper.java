@@ -17,6 +17,7 @@ public class FragmentHelper {
     public final static String WIDGET_COLOR_TRACK_VIEW = "ColorTrackView";
     public final static String WIDGET_COLOR_IMAGE_VIEW = "ColorImageView";
     public final static String WIDGET_SIGNATURE_PAD = "SignaturePad";
+    public final static String WIDGET_AUTOCHECKEDITTEXT = "AutoCheckEditText";
 
     public final static String UTIL_SCREEN = "ScreenUtil";
     public final static String UTIL_CONTEXT = "ContextUtil";
@@ -57,6 +58,9 @@ public class FragmentHelper {
                 break;
             case WIDGET_SIGNATURE_PAD:
                 fragment = new Fragment3SignaturePad();
+                break;
+            case WIDGET_AUTOCHECKEDITTEXT:
+                fragment = new Fragment3AutoCheckEditText();
                 break;
             case UTIL_SCREEN:
                 fragment = new Fragment3UtilScreen();

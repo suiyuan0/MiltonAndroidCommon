@@ -13,10 +13,6 @@ import java.net.URL;
 public class HttpUtil {
     private static final int TIMEOUT_IN_MILLIONS = 5000;
 
-    public interface CallBack {
-        void onRequestComplete(String result);
-    }
-
     /**
      * 异步的Get请求
      *
@@ -188,4 +184,10 @@ public class HttpUtil {
         }
         return result;
     }
+
+    public interface CallBack {
+        void onRequestComplete(String result);
+    }
+
+
 }

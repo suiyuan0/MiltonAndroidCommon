@@ -341,6 +341,18 @@ public class ResourceUtil {
     }
 
     /**
+     * 根据资源名称和类型,得到资源ID
+     * @param context
+     * @param resourceName
+     * @param type
+     * @return
+     */
+    public static int $id(Context context, String resourceName, TYPE type) {
+        Resources resources = context.getResources();
+        return resources.getIdentifier(resourceName, type.getString(), context.getPackageName());
+    }
+
+    /**
      * 使用TransitionDrawable实现渐变效果 ,比使用AlphaAnimation效果要好，可避免出现闪烁问题。
      *
      * @param imageView
@@ -355,5 +367,37 @@ public class ResourceUtil {
         imageView.setBackgroundDrawable(imageView.getDrawable());
         imageView.setImageDrawable(td);
         td.startTransition(200);
+    }
+
+    /**
+     * 定义资源枚举类型
+     */
+    public enum TYPE {
+        ATTR("attr"),
+        ARRAY("array"),
+        ANIM("anim"),
+        BOOL("bool"),
+        COLOR("color"),
+        DIMEN("dimen"),
+        DRAWABLE("drawable"),
+        ID("id"),
+        INTEGER("integer"),
+        LAYOUT("layout"),
+        MENU("menu"),
+        MIPMAP("mipmap"),
+        RAW("raw"),
+        STRING("string"),
+        STYLE("style"),
+        STYLEABLE("styleable");
+
+        private String string;
+
+        TYPE(String string) {
+            this.string = string;
+        }
+
+        public String getString() {
+            return string;
+        }
     }
 }

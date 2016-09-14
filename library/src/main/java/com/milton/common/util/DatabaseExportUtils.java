@@ -58,7 +58,7 @@ public final class DatabaseExportUtils {
         String destFilePath = Environment.getExternalStorageDirectory()
                 + (TextUtils.isEmpty(targetFile) ? (context.getPackageName() + ".db")
                 : targetFile);
-        boolean isCopySuccess = FileUtil
+        boolean isCopySuccess = FileUtils
                 .copyFile(sourceFilePath, destFilePath);
         if (DEBUG) {
             if (isCopySuccess) {
