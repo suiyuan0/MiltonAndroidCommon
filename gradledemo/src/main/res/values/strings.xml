@@ -1,0 +1,5 @@
+<resources>
+    <!--<string name="app_name">GradleDemo</string>-->
+    <string name="type">main</string>
+    <string name="app_name">GradleDemo</string>
+</resources>

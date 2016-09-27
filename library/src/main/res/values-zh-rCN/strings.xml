@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">MiltomCommon</string>
     <string name="password_title">请输入密码</string>
     <string name="voice_tip">语音控制开始了，请大声说出您想控制的设备的名字和动作，\n如：“回家”。</string>
     <string name="voice_tip2">还未得到您的指示，请点击话筒重试。</string>

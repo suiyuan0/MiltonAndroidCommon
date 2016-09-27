@@ -9,11 +9,7 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import com.avos.avoscloud.AVAnalytics;
-import com.avos.avoscloud.AVException;
-import com.avos.avoscloud.AVObject;
-import com.avos.avoscloud.SaveCallback;
 import com.milton.common.demo.R;
-import com.milton.common.demo.av.Student;
 import com.milton.common.demo.eventbus.BaseEvent;
 import com.milton.common.util.LogUtil;
 import com.milton.common.util.PreferenceConstants;
@@ -65,7 +61,7 @@ public class SplashActivity extends FragmentActivity {
         setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
         AVAnalytics.trackAppOpened(getIntent());
-        setContentView(R.layout.splash);
+        setContentView(R.layout.activity_splash);
         // 判断是否从推送通知栏打开的
         XGPushClickedResult message = XGPushManager.onActivityStarted(this);
         LogUtil.e("alinmi22", "isTaskRoot() = " + isTaskRoot() + ", XGPushClickedResult = " + message);

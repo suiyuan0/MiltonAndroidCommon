@@ -9,9 +9,6 @@ buildscript {
         classpath 'com.novoda:bintray-release:0.3.4'
 //        classpath 'com.android.tools.build:gradle-experimental:0.2.0'
 //        classpath 'com.android.tools.build:gradle-experimental:0.7.0'
-
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
     }
 }
 
@@ -19,9 +16,32 @@ allprojects {
     repositories {
         jcenter()
         maven { url "https://www.jitpack.io" }
+        //        mavenCentral()
+//        mavenLocal()
+//        maven {
+//            url "http://repo.acmecorp.com/maven2"
+//            credentials {
+//                username 'user'
+//                password 'secretpassword'
+//            }
+//        }
     }
 }
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+ext {
+    compileSdkVersion = 24
+    buildToolsVersion = "24.0.2"
+    local = 'Hello from build.gradle'
+}
+//   ./gradlew -q printProperties -Pcmd='Hello from the command line'
+task printProperties << {
+    println local        // Local extra property
+    println propertiesFile        // Property from file
+    if (project.hasProperty('cmd')) {
+        println cmd        // Command line property
+    }
 }

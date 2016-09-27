@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.gradledemo.MainActivity">
+
+    <com.milton.common.widget.TitleLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/tl_bg"
+        app:title="Type">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@string/type"
+            android:textColor="@color/black" />
+    </com.milton.common.widget.TitleLinearLayout>
+
+    <com.milton.common.widget.TitleLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/tl_bg"
+        app:title="APP name">
+
+        <TextView
+            android:id="@+id/tv_app_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@string/app_name2"
+            android:textColor="@color/black" />
+    </com.milton.common.widget.TitleLinearLayout>
+
+    <com.milton.common.widget.TitleLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/tl_bg"
+        app:title="build.gradle's resValue">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@string/title22"
+            android:textColor="@color/black" />
+    </com.milton.common.widget.TitleLinearLayout>
+
+    <com.milton.common.widget.TitleLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/tl_bg"
+        app:title="build.gradle's buildConfigField ">
+
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textColor="@color/black" />
+    </com.milton.common.widget.TitleLinearLayout>
+
+    <com.milton.common.widget.TitleLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/tl_bg"
+        app:title="application id">
+
+        <TextView
+            android:id="@+id/tv_app_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textColor="@color/black" />
+    </com.milton.common.widget.TitleLinearLayout>
+
+    <com.milton.common.widget.TitleLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/tl_bg"
+        app:title="version name">
+
+        <TextView
+            android:id="@+id/tv_version_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textColor="@color/black" />
+    </com.milton.common.widget.TitleLinearLayout>
+
+    <com.milton.common.widget.TitleLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/tl_bg"
+        app:title="PackageInfo">
+
+        <TextView
+            android:id="@+id/tv_package_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textColor="@color/black" />
+    </com.milton.common.widget.TitleLinearLayout>
+
+    <com.milton.common.widget.TitleLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/tl_bg"
+        app:title="Staging source set">
+
+        <TextView
+            android:id="@+id/tv_source_set"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textColor="@color/black" />
+    </com.milton.common.widget.TitleLinearLayout>
+
+    <Button
+        android:id="@+id/btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Jump"></Button>
+</LinearLayout>
