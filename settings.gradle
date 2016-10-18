@@ -1,5 +1,5 @@
 //include ':app'
-include ':library', ':okhttp', ':gradledemo'
+include ':library', ':okhttp', ':gradledemo', ':jnitest', ':testime', ':ddd'
 include ':demo'
 include ':jni'
 include ':okhttputils'

@@ -1,0 +1,62 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 24
+    buildToolsVersion "24.0.2"
+
+    defaultConfig {
+        applicationId "com.milton.jnitest"
+        minSdkVersion 17
+        targetSdkVersion 24
+        versionCode 1
+        versionName "1.0"
+        ndk {
+            moduleName "emJniLibName"                    //生成的so名字
+            abiFilters "armeabi", "armeabi-v7a", "x86"  //输出指定三种abi体系结构下的so库。目前可有可无。
+            ldLibs "log"
+//            stl "stlport_shared"
+//            cFlags "-DANDROID_NDK " // Define some macros
+//            cFlags "-DANDROID_NDK -D_RELEASE"
+//            ldLibs "m", "log", "jnigraphics"
+//            abiFilters "all"
+        }
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:24.2.0'
+}
+task clearApk(type: Delete) {
+    delete '../release/' + POM_ARTIFACT_ID + '_' + VERSION_NAME + '.apk'
+}
+
+task makeApk(type: Copy) {
+    from('build/outputs/apk/')
+    into('../release/')
+    include('app-debug.apk')
+    rename('app-debug.apk', POM_ARTIFACT_ID + '_' + VERSION_NAME + '.apk')
+}
+makeApk.dependsOn(clearApk, build)
+
+task generateh() << {
+    Process a = "javah  -d jnitest/src/main/jni -classpath jnitest/build/intermediates/classes/debug/ -jni com.milton.jnitest.NdkJniUtils".execute()
+    a.waitFor()
+    Process b = "javap -classpath jnitest/build/intermediates/classes/debug/   -s com.milton.jnitest.NdkJniUtils".execute()
+    b.waitFor()
+}
+generateh.dependsOn(assembleDebug)
+
+task bjni(dependsOn: generateh) << {
+    Process p = "adb install -r jnitest/build/outputs/apk/jnitest-debug.apk".execute()
+    p.waitFor()
+    "adb shell am start -n \"com.milton.jnitest/com.milton.jnitest.MainActivity\" -a android.intent.action.MAIN -c android.intent.category.LAUNCHER".execute()
+}

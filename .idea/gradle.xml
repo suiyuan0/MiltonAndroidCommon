@@ -10,14 +10,17 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/PhotoPicker" />
+            <option value="$PROJECT_DIR$/ddd" />
             <option value="$PROJECT_DIR$/demo" />
             <option value="$PROJECT_DIR$/gradledemo" />
             <option value="$PROJECT_DIR$/jni" />
+            <option value="$PROJECT_DIR$/jnitest" />
             <option value="$PROJECT_DIR$/library" />
             <option value="$PROJECT_DIR$/okhttp" />
             <option value="$PROJECT_DIR$/okhttputils" />
             <option value="$PROJECT_DIR$/sample-okhttp" />
             <option value="$PROJECT_DIR$/signature-pad" />
+            <option value="$PROJECT_DIR$/testime" />
             <option value="$PROJECT_DIR$/ucrop" />
           </set>
         </option>
@@ -25,14 +28,17 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/PhotoPicker" />
+            <option value="$PROJECT_DIR$/ddd" />
             <option value="$PROJECT_DIR$/demo" />
             <option value="$PROJECT_DIR$/gradledemo" />
             <option value="$PROJECT_DIR$/jni" />
+            <option value="$PROJECT_DIR$/jnitest" />
             <option value="$PROJECT_DIR$/library" />
             <option value="$PROJECT_DIR$/okhttp" />
             <option value="$PROJECT_DIR$/okhttputils" />
             <option value="$PROJECT_DIR$/sample-okhttp" />
             <option value="$PROJECT_DIR$/signature-pad" />
+            <option value="$PROJECT_DIR$/testime" />
             <option value="$PROJECT_DIR$/ucrop" />
           </set>
         </option>
