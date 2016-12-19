@@ -53,7 +53,7 @@ task generateh() << {
     Process b = "javap -classpath jnitest/build/intermediates/classes/debug/   -s com.milton.jnitest.NdkJniUtils".execute()
     b.waitFor()
 }
-generateh.dependsOn(assembleDebug)
+//generateh.dependsOn(assembleDebug)
 
 task bjni(dependsOn: generateh) << {
     Process p = "adb install -r jnitest/build/outputs/apk/jnitest-debug.apk".execute()

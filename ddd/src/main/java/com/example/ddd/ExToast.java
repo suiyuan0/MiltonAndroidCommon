@@ -18,7 +18,7 @@ public class ExToast {
     public static final int LENGTH_ALWAYS = 0;
     public static final int LENGTH_SHORT = 2;
     public static final int LENGTH_LONG = 4;
-    private static final String TAG = "ExToast";
+    private static final String TAG = ExToast.class.getSimpleName();
     private Toast toast;
     private Context mContext;
     private int mDuration = LENGTH_SHORT;
@@ -53,10 +53,10 @@ public class ExToast {
         return exToast;
     }
 
-    public static ExToast makeText(Context context, int resId, int duration)
-            throws Resources.NotFoundException {
-        return makeText(context, context.getResources().getText(resId), duration);
-    }
+//    public static ExToast makeText(Context context, int resId, int duration)
+//            throws Resources.NotFoundException {
+//        return makeText(context, context.getResources().getText(resId), duration);
+//    }
 
     /**
      * Show the view for the specified duration.
@@ -73,7 +73,7 @@ public class ExToast {
         isShow = true;
         //判断duration，如果大于#LENGTH_ALWAYS 则设置消失时间
         if (mDuration > LENGTH_ALWAYS) {
-            handler.postDelayed(hideRunnable, mDuration * 1000);
+            handler.postDelayed(hideRunnable, mDuration);
         }
     }
 
@@ -89,6 +89,7 @@ public class ExToast {
         } catch (InvocationTargetException | IllegalAccessException e) {
             e.printStackTrace();
         }
+        toast = null;
         isShow = false;
     }
 

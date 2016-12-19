@@ -43,6 +43,7 @@
         <attr name="progress_backgroud" format="color"></attr>
         <attr name="progress_front" format="color"></attr>
         <attr name="progress_circle_color" format="color"></attr>
+        <attr name="progress_circle_background" format="reference"></attr>
         <attr name="progress_max" format="integer"></attr>
         <attr name="progress_min" format="integer"></attr>
         <attr name="show_progress_text" format="boolean"></attr>
@@ -196,5 +197,30 @@
 
     <declare-styleable name="TitleViewGroup">
         <attr name="title"></attr>
+    </declare-styleable>
+    <declare-styleable name="PercentLayout_Layout">
+        <attr name="layout_widthPercent" format="string"/>
+        <attr name="layout_heightPercent" format="string"/>
+
+        <attr name="layout_marginPercent" format="string"/>
+        <attr name="layout_marginLeftPercent" format="string"/>
+        <attr name="layout_marginTopPercent" format="string"/>
+        <attr name="layout_marginRightPercent" format="string"/>
+        <attr name="layout_marginBottomPercent" format="string"/>
+        <attr name="layout_marginStartPercent" format="string"/>
+        <attr name="layout_marginEndPercent" format="string"/>
+
+        <attr name="layout_textSizePercent" format="string"/>
+
+        <attr name="layout_maxWidthPercent" format="string"/>
+        <attr name="layout_maxHeightPercent" format="string"/>
+        <attr name="layout_minWidthPercent" format="string"/>
+        <attr name="layout_minHeightPercent" format="string"/>
+
+        <attr name="layout_paddingPercent" format="string"/>
+        <attr name="layout_paddingTopPercent" format="string"/>
+        <attr name="layout_paddingBottomPercent" format="string"/>
+        <attr name="layout_paddingLeftPercent" format="string"/>
+        <attr name="layout_paddingRightPercent" format="string"/>
     </declare-styleable>
 </resources>

@@ -18,29 +18,29 @@ import com.milton.common.util.ResourceUtil;
 public class CircleSeekBar extends View {
     private final static String TAG = CircleSeekBar.class.getSimpleName();
     private final static String UNIT = "℃";
+    double mDelta;
+    int mTextWidth;
+    int mTextHeight;
+    int slop = 10;
     private Context mContext;
     private AttributeSet mAttrs;
-
     private Drawable mPointDrawable;
     private Drawable mThumbDrawable;
+    private Drawable mCircleBackgroundDrawable;
     private int mThumbHeight = 0;
     private int mThumbWidth = 0;
     private int[] mThumbNormal = null;
     private int[] mThumbPressed = null;
-
     private Paint mstartEndPaint;
-
     private Paint mCirclePaint = null;
     private int mProgressMax = 25;
     private int mProgressMin = 15;
     private Paint mSeekBarBackgroundPaint = null;
     private Paint mSeekBarFrontPaint = null;
     private RectF mArcRectF = null;
-
     private boolean mIsShowProgressText = false;
     private Paint mProgressTextPaint = null;
     private int mProgressTextSize;
-
     private int mViewHeight = 0;
     private int mViewWidth = 0;
     private int mSeekBarSize = 0;
@@ -49,29 +49,18 @@ public class CircleSeekBar extends View {
     private int mSeekBarCenterY = 0;
     private float mThumbLeft = 0;
     private float mThumbTop = 0;
-
-
     private float mPointLeft = 0;
     private float mPointTop = 0;
-
     private float mSeekBarDegree = 0.0F;
     private int mCurrentProgress = -1;
-
     private OnSeekBarChangeListener onSeekBarChangeListener;
-
-    double mDelta;
-    int mTextWidth;
-    int mTextHeight;
     private float startAngle = 150F;
     private float sweepAngle = 240F;
     private int minTextWidth = 0;
     private int minTextHeight = 0;
     private int maxTextWidth = 0;
     private int maxTextHeight = 0;
-
     private int deltaRadius = 0;
-
-    int slop = 10;
 
     public CircleSeekBar(Context context) {
         this(context, null);
@@ -102,6 +91,7 @@ public class CircleSeekBar extends View {
         mThumbPressed = new int[]{android.R.attr.state_focused, android.R.attr.state_pressed, android.R.attr.state_selected, android.R.attr.state_checked};
 
         mPointDrawable = ta.getDrawable(R.styleable.CircleSeekBar_android_background);
+        mCircleBackgroundDrawable = ta.getDrawable(R.styleable.CircleSeekBar_progress_circle_background);
 
         float progressWidth = ta.getDimensionPixelOffset(R.styleable.CircleSeekBar_progress_width, 5);
         int progressBackgroundColor = ta.getColor(R.styleable.CircleSeekBar_progress_backgroud, Color.GRAY);
@@ -169,7 +159,7 @@ public class CircleSeekBar extends View {
         minTextHeight = textBounds.height();
         minTextWidth = textBounds.width();
 
-        deltaRadius = ResourceUtil.dp2px(getContext(), 25);
+        deltaRadius = ResourceUtil.dp2px(getContext(), 15);
 
         mSeekBarDegree = startAngle;
         ta.recycle();
@@ -206,7 +196,8 @@ public class CircleSeekBar extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         //绘制背景圆环
-        canvas.drawCircle(mSeekBarCenterX, mSeekBarCenterY, mSeekBarRadius - deltaRadius, mCirclePaint);
+//        canvas.drawCircle(mSeekBarCenterX, mSeekBarCenterY, mSeekBarRadius - deltaRadius, mCirclePaint);
+        drawCircleBackground(canvas);
         //绘制进度条
         canvas.drawArc(this.mArcRectF, startAngle, sweepAngle, false, mSeekBarBackgroundPaint);
         //绘制进度条
@@ -338,6 +329,14 @@ public class CircleSeekBar extends View {
         mPointTop = (float) (Y);
     }
 
+    private void drawCircleBackground(Canvas canvas) {
+        if (mCircleBackgroundDrawable != null) {
+            final int delta = mSeekBarRadius - deltaRadius;
+//            mSeekBarCenterX, mSeekBarCenterY,
+            this.mCircleBackgroundDrawable.setBounds(mSeekBarCenterX - delta, mSeekBarCenterY - delta, mSeekBarCenterX + delta, mSeekBarCenterY + delta);
+            this.mCircleBackgroundDrawable.draw(canvas);
+        }
+    }
 
     private void drawThumBitmap(Canvas canvas) {
         if (mCurrentProgress != -1) {

@@ -81,17 +81,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn1:
-                mExToast = ExToast.makeText(MainActivity.this, "show btn1", 10000);
+                mExToast = ExToast.makeText(MainActivity.this, "show btn1", 1000);
                 mExToast.show();
                 break;
             case R.id.btn2:
-                mExToast.hide();
+                if (mExToast != null) {
+                    mExToast.hide();
+                }
                 break;
             case R.id.btn3:
                 show(MainActivity.this, "showMyToast");
                 break;
             case R.id.btn4:
-                ToastUtil.showShort(MainActivity.this, "ToastUtil\nshowShort");
+                ToastUtil.showShort(MainActivity.this, "ToastUtil", "showShort");
                 break;
             case R.id.btn5:
                 ToastUtil.showToastNoraml(getApplicationContext(), "showToastNoraml 2000", 2000);

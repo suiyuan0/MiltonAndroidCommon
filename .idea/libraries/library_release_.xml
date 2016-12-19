@@ -4,9 +4,9 @@
       <root url="jar://$PROJECT_DIR$/gradledemo/build/intermediates/exploded-aar/library-release/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/gradledemo/build/intermediates/exploded-aar/library-release/jars/libs/VoiceRecognition-2.0.1.jar!/" />
-      <root url="jar://$PROJECT_DIR$/gradledemo/build/intermediates/exploded-aar/library-release/jars/classes.jar!/" />
       <root url="file://$PROJECT_DIR$/gradledemo/build/intermediates/exploded-aar/library-release/res" />
+      <root url="jar://$PROJECT_DIR$/gradledemo/build/intermediates/exploded-aar/library-release/jars/classes.jar!/" />
+      <root url="jar://$PROJECT_DIR$/gradledemo/build/intermediates/exploded-aar/library-release/jars/libs/VoiceRecognition-2.0.1.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
